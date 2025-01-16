@@ -1,0 +1,25 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.__pycache__
+.pyc
+
+# Virtual environment
+.vscode/
+.venv/
+env/
+
+# Temp
+response.csv
+
+# Logs
+*.log
+
+# Development
+Test_folder/
+
+
+# Dependencies
+Pipfile.lock
+Pipfile
