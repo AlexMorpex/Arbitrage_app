@@ -8,13 +8,12 @@ import os
 
 DEBUG = True
 
-BASE_PATH = pathlib.Path('C:/Users/alexa/Projects/Arbitrage_app')
+BASE_PATH = pathlib.Path().absolute()
 GITHUB_URL = 'https://api.github.com/repos/AlexMorpex/Arbitrage_app/contents'
 JSON_PATH = BASE_PATH.joinpath('files.json')
 
 if DEBUG:
-    BASE_PATH = pathlib.Path(
-        'C:/Users/alexa/Projects/Arbitrage_app/Test_folder')
+    BASE_PATH = pathlib.Path().absolute().joinpath('Test_folder')
     JSON_PATH = BASE_PATH.joinpath('files.json')
 
 logging.basicConfig(level=logging.INFO,
