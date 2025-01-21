@@ -15,16 +15,18 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLayout, QMainWindow,
-    QPushButton, QSizePolicy, QSpacerItem, QStackedWidget,
-    QVBoxLayout, QWidget)
+from PySide6.QtWebEngineWidgets import QWebEngineView
+from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
+    QLayout, QLineEdit, QMainWindow, QPushButton,
+    QSizePolicy, QSpacerItem, QStackedWidget, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1018, 624)
-        MainWindow.setMinimumSize(QSize(800, 500))
+        MainWindow.resize(1040, 630)
+        MainWindow.setMinimumSize(QSize(1040, 630))
         MainWindow.setStyleSheet(u"")
         self.MainWidget = QWidget(MainWindow)
         self.MainWidget.setObjectName(u"MainWidget")
@@ -45,7 +47,8 @@ class Ui_MainWindow(object):
         self.Head.setMinimumSize(QSize(0, 70))
         self.Head.setMaximumSize(QSize(16777215, 70))
         self.Head.setStyleSheet(u"layout-spacing:10px;\n"
-"background-color: rgb(0, 26, 24)")
+"background-color: rgb(0, 26, 24);\n"
+"color:white;")
         self.horizontalLayout_2 = QHBoxLayout(self.Head)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout_2.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
@@ -101,7 +104,7 @@ class Ui_MainWindow(object):
 
         self.Body = QWidget(self.MainWidget)
         self.Body.setObjectName(u"Body")
-        self.Body.setStyleSheet(u"")
+        self.Body.setStyleSheet(u"color:white;")
         self.horizontalLayout = QHBoxLayout(self.Body)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -114,7 +117,8 @@ class Ui_MainWindow(object):
         sizePolicy2.setHeightForWidth(self.LeftSide_menu.sizePolicy().hasHeightForWidth())
         self.LeftSide_menu.setSizePolicy(sizePolicy2)
         self.LeftSide_menu.setMaximumSize(QSize(185, 16777215))
-        self.LeftSide_menu.setStyleSheet(u"background-color: rgb(0, 55, 50);")
+        self.LeftSide_menu.setStyleSheet(u"background-color: rgb(0, 55, 50);\n"
+"color:white;")
         self.verticalLayout_2 = QVBoxLayout(self.LeftSide_menu)
         self.verticalLayout_2.setSpacing(5)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -160,15 +164,83 @@ class Ui_MainWindow(object):
         self.Main_menu.setObjectName(u"Main_menu")
         self.Main_menu.setStyleSheet(u"background-color:rgb(49, 80, 77);\n"
 "")
+        self.gridLayout = QGridLayout(self.Main_menu)
+        self.gridLayout.setSpacing(0)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.stackedWidget = QStackedWidget(self.Main_menu)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setGeometry(QRect(120, 50, 165, 125))
         self.Charts_page = QWidget()
         self.Charts_page.setObjectName(u"Charts_page")
+        self.gridLayout_2 = QGridLayout(self.Charts_page)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.Charts_browser = QWebEngineView(self.Charts_page)
+        self.Charts_browser.setObjectName(u"Charts_browser")
+        self.Charts_browser.setStyleSheet(u"background-color: rgb(91, 112, 101);\n"
+"selection-background-color: rgb(91, 112, 101);")
+        self.Charts_browser.setUrl(QUrl(u"about:blank"))
+
+        self.gridLayout_2.addWidget(self.Charts_browser, 2, 0, 1, 7)
+
+        self.label = QLabel(self.Charts_page)
+        self.label.setObjectName(u"label")
+        self.label.setMaximumSize(QSize(80, 16777215))
+        self.label.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
+        self.label.setStyleSheet(u"color: white;")
+        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.gridLayout_2.addWidget(self.label, 0, 0, 1, 1)
+
+        self.SymbolLineEdit = QLineEdit(self.Charts_page)
+        self.SymbolLineEdit.setObjectName(u"SymbolLineEdit")
+        self.SymbolLineEdit.setMaximumSize(QSize(80, 20))
+        self.SymbolLineEdit.setStyleSheet(u"color:white;")
+        self.SymbolLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.gridLayout_2.addWidget(self.SymbolLineEdit, 0, 1, 1, 1)
+
+        self.ExchangeLineEdit = QLineEdit(self.Charts_page)
+        self.ExchangeLineEdit.setObjectName(u"ExchangeLineEdit")
+        self.ExchangeLineEdit.setMaximumSize(QSize(80, 20))
+
+        self.gridLayout_2.addWidget(self.ExchangeLineEdit, 0, 3, 1, 1)
+
+        self.ApplySymbol_button = QPushButton(self.Charts_page)
+        self.ApplySymbol_button.setObjectName(u"ApplySymbol_button")
+        self.ApplySymbol_button.setMaximumSize(QSize(70, 20))
+        self.ApplySymbol_button.setStyleSheet(u"Color: white;")
+
+        self.gridLayout_2.addWidget(self.ApplySymbol_button, 0, 4, 1, 1)
+
+        self.label_2 = QLabel(self.Charts_page)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setMaximumSize(QSize(80, 20))
+        self.label_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.gridLayout_2.addWidget(self.label_2, 0, 2, 1, 1)
+
         self.stackedWidget.addWidget(self.Charts_page)
+        self.Settings_page = QWidget()
+        self.Settings_page.setObjectName(u"Settings_page")
+        self.stackedWidget.addWidget(self.Settings_page)
+        self.Main_page = QWidget()
+        self.Main_page.setObjectName(u"Main_page")
+        self.stackedWidget.addWidget(self.Main_page)
+        self.Account_page = QWidget()
+        self.Account_page.setObjectName(u"Account_page")
+        self.stackedWidget.addWidget(self.Account_page)
+        self.Ai_predictions_page = QWidget()
+        self.Ai_predictions_page.setObjectName(u"Ai_predictions_page")
+        self.stackedWidget.addWidget(self.Ai_predictions_page)
+        self.Arbitrage_pairs_page = QWidget()
+        self.Arbitrage_pairs_page.setObjectName(u"Arbitrage_pairs_page")
+        self.stackedWidget.addWidget(self.Arbitrage_pairs_page)
         self.Exchenges_page = QWidget()
         self.Exchenges_page.setObjectName(u"Exchenges_page")
         self.stackedWidget.addWidget(self.Exchenges_page)
+
+        self.gridLayout.addWidget(self.stackedWidget, 0, 0, 1, 1)
+
 
         self.horizontalLayout.addWidget(self.Main_menu)
 
@@ -187,6 +259,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
+        self.stackedWidget.setCurrentIndex(0)
+
+
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
@@ -202,5 +277,8 @@ class Ui_MainWindow(object):
         self.Exchanges_button.setText(QCoreApplication.translate("MainWindow", u"Exchanges", None))
         self.Ai_predictions_button.setText(QCoreApplication.translate("MainWindow", u"Ai predictions", None))
         self.Arbitrage_button.setText(QCoreApplication.translate("MainWindow", u"Arbitrage pairs", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Symbol", None))
+        self.ApplySymbol_button.setText(QCoreApplication.translate("MainWindow", u"Apply", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Exchange", None))
     # retranslateUi
 

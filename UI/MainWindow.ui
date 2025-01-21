@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1018</width>
-    <height>624</height>
+    <width>1040</width>
+    <height>630</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>800</width>
-    <height>500</height>
+    <width>1040</width>
+    <height>630</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -71,7 +71,8 @@ border-color: rgb(0, 255, 0);</string>
       </property>
       <property name="styleSheet">
        <string notr="true">layout-spacing:10px;
-background-color: rgb(0, 26, 24)</string>
+background-color: rgb(0, 26, 24);
+color:white;</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <property name="sizeConstraint">
@@ -206,7 +207,7 @@ background-color: rgb(0, 26, 24)</string>
     <item>
      <widget class="QWidget" name="Body" native="true">
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">color:white;</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
@@ -239,7 +240,8 @@ background-color: rgb(0, 26, 24)</string>
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">background-color: rgb(0, 55, 50);</string>
+          <string notr="true">background-color: rgb(0, 55, 50);
+color:white;</string>
          </property>
          <property name="Animation" stdset="0">
           <string/>
@@ -364,18 +366,136 @@ background-color: rgb(0, 26, 24)</string>
           <string notr="true">background-color:rgb(49, 80, 77);
 </string>
          </property>
-         <widget class="QStackedWidget" name="stackedWidget">
-          <property name="geometry">
-           <rect>
-            <x>120</x>
-            <y>50</y>
-            <width>165</width>
-            <height>125</height>
-           </rect>
+         <layout class="QGridLayout" name="gridLayout">
+          <property name="leftMargin">
+           <number>0</number>
           </property>
-          <widget class="QWidget" name="Charts_page"/>
-          <widget class="QWidget" name="Exchenges_page"/>
-         </widget>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <item row="0" column="0">
+           <widget class="QStackedWidget" name="stackedWidget">
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="Charts_page">
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="2" column="0" colspan="7">
+               <widget class="QWebEngineView" name="Charts_browser">
+                <property name="styleSheet">
+                 <string notr="true">background-color: rgb(91, 112, 101);
+selection-background-color: rgb(91, 112, 101);</string>
+                </property>
+                <property name="url">
+                 <url>
+                  <string>about:blank</string>
+                 </url>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label">
+                <property name="maximumSize">
+                 <size>
+                  <width>80</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LayoutDirection::LeftToRight</enum>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: white;</string>
+                </property>
+                <property name="text">
+                 <string>Symbol</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="SymbolLineEdit">
+                <property name="maximumSize">
+                 <size>
+                  <width>80</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color:white;</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QLineEdit" name="ExchangeLineEdit">
+                <property name="maximumSize">
+                 <size>
+                  <width>80</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="4">
+               <widget class="QPushButton" name="ApplySymbol_button">
+                <property name="maximumSize">
+                 <size>
+                  <width>70</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">Color: white;</string>
+                </property>
+                <property name="text">
+                 <string>Apply</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="label_2">
+                <property name="maximumSize">
+                 <size>
+                  <width>80</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="text">
+                 <string>Exchange</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="Settings_page"/>
+            <widget class="QWidget" name="Main_page"/>
+            <widget class="QWidget" name="Account_page"/>
+            <widget class="QWidget" name="Ai_predictions_page"/>
+            <widget class="QWidget" name="Arbitrage_pairs_page"/>
+            <widget class="QWidget" name="Exchenges_page"/>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
@@ -403,6 +523,13 @@ background-color: rgb(0, 26, 24)</string>
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebEngineView</class>
+   <extends>QWidget</extends>
+   <header location="global">QtWebEngineWidgets/QWebEngineView</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
