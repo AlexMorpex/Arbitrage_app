@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>915</width>
+    <width>1018</width>
     <height>624</height>
    </rect>
   </property>
@@ -23,6 +23,12 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="MainWidget">
+   <property name="minimumSize">
+    <size>
+     <width>1040</width>
+     <height>624</height>
+    </size>
+   </property>
    <property name="styleSheet">
     <string notr="true">border:1px solid;
 border-color: rgb(0, 255, 0);</string>
@@ -64,14 +70,15 @@ border-color: rgb(0, 255, 0);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">layout-spacing:10px;</string>
+       <string notr="true">layout-spacing:10px;
+background-color: rgb(0, 26, 24)</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <property name="sizeConstraint">
         <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
        </property>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="Menu_button">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -96,21 +103,21 @@ border-color: rgb(0, 255, 0);</string>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label">
+        <widget class="QPushButton" name="Main_page_button">
          <property name="minimumSize">
           <size>
-           <width>50</width>
+           <width>150</width>
            <height>50</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>200</width>
-           <height>50</height>
+           <width>150</width>
+           <height>150</height>
           </size>
          </property>
          <property name="text">
-          <string>Arbitrage App</string>
+          <string>Arbitrage app</string>
          </property>
         </widget>
        </item>
@@ -128,7 +135,7 @@ border-color: rgb(0, 255, 0);</string>
         </spacer>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_6">
+        <widget class="QPushButton" name="Settings_button">
          <property name="minimumSize">
           <size>
            <width>50</width>
@@ -140,6 +147,31 @@ border-color: rgb(0, 255, 0);</string>
            <width>50</width>
            <height>50</height>
           </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Settings</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="Mode_button">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>Mode</string>
@@ -147,7 +179,7 @@ border-color: rgb(0, 255, 0);</string>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_5">
+        <widget class="QPushButton" name="Account_button">
          <property name="minimumSize">
           <size>
            <width>50</width>
@@ -159,6 +191,9 @@ border-color: rgb(0, 255, 0);</string>
            <width>50</width>
            <height>50</height>
           </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>Account</string>
@@ -191,108 +226,119 @@ border-color: rgb(0, 255, 0);</string>
        </property>
        <item>
         <widget class="QWidget" name="LeftSide_menu" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="maximumSize">
           <size>
-           <width>250</width>
+           <width>185</width>
            <height>16777215</height>
           </size>
          </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(0, 55, 50);</string>
+         </property>
+         <property name="Animation" stdset="0">
+          <string/>
+         </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="spacing">
+           <number>5</number>
+          </property>
+          <property name="leftMargin">
+           <number>10</number>
+          </property>
+          <property name="topMargin">
+           <number>10</number>
+          </property>
+          <property name="rightMargin">
+           <number>10</number>
+          </property>
+          <property name="bottomMargin">
+           <number>10</number>
+          </property>
           <item>
-           <widget class="QPushButton" name="pushButton_4">
-            <property name="minimumSize">
-             <size>
-              <width>230</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>230</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>PushButton</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QComboBox" name="comboBox">
+           <widget class="QPushButton" name="Charts_button">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
             <property name="minimumSize">
              <size>
-              <width>230</width>
+              <width>165</width>
               <height>50</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>230</width>
-              <height>50</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_7">
-            <property name="minimumSize">
-             <size>
-              <width>230</width>
-              <height>50</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>230</width>
+              <width>180</width>
               <height>50</height>
              </size>
             </property>
             <property name="text">
-             <string>PushButton</string>
+             <string>Charts</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_8">
+           <widget class="QPushButton" name="Exchanges_button">
             <property name="minimumSize">
              <size>
-              <width>230</width>
+              <width>165</width>
               <height>50</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>230</width>
+              <width>180</width>
               <height>50</height>
              </size>
             </property>
             <property name="text">
-             <string>PushButton</string>
+             <string>Exchanges</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_9">
+           <widget class="QPushButton" name="Ai_predictions_button">
             <property name="minimumSize">
              <size>
-              <width>230</width>
+              <width>165</width>
               <height>50</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>230</width>
+              <width>180</width>
               <height>50</height>
              </size>
             </property>
             <property name="text">
-             <string>PushButton</string>
+             <string>Ai predictions</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="Arbitrage_button">
+            <property name="minimumSize">
+             <size>
+              <width>165</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>180</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Arbitrage pairs</string>
             </property>
            </widget>
           </item>
@@ -313,7 +359,24 @@ border-color: rgb(0, 255, 0);</string>
         </widget>
        </item>
        <item>
-        <widget class="QWidget" name="Main_menu" native="true"/>
+        <widget class="QWidget" name="Main_menu" native="true">
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(49, 80, 77);
+</string>
+         </property>
+         <widget class="QStackedWidget" name="stackedWidget">
+          <property name="geometry">
+           <rect>
+            <x>120</x>
+            <y>50</y>
+            <width>165</width>
+            <height>125</height>
+           </rect>
+          </property>
+          <widget class="QWidget" name="Charts_page"/>
+          <widget class="QWidget" name="Exchenges_page"/>
+         </widget>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -323,14 +386,17 @@ border-color: rgb(0, 255, 0);</string>
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>70</height>
+        <height>60</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>70</height>
+        <height>60</height>
        </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(0, 26, 24)</string>
       </property>
      </widget>
     </item>
