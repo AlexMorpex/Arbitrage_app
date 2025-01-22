@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1040, 630)
+        MainWindow.resize(1181, 630)
         MainWindow.setMinimumSize(QSize(1040, 630))
         MainWindow.setStyleSheet(u"")
         self.MainWidget = QWidget(MainWindow)
@@ -164,60 +164,109 @@ class Ui_MainWindow(object):
         self.Main_menu.setObjectName(u"Main_menu")
         self.Main_menu.setStyleSheet(u"background-color:rgb(49, 80, 77);\n"
 "")
-        self.gridLayout = QGridLayout(self.Main_menu)
-        self.gridLayout.setSpacing(0)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.stackedWidget = QStackedWidget(self.Main_menu)
-        self.stackedWidget.setObjectName(u"stackedWidget")
-        self.Charts_page = QWidget()
-        self.Charts_page.setObjectName(u"Charts_page")
-        self.gridLayout_2 = QGridLayout(self.Charts_page)
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.Charts_browser = QWebEngineView(self.Charts_page)
-        self.Charts_browser.setObjectName(u"Charts_browser")
-        self.Charts_browser.setStyleSheet(u"background-color: rgb(91, 112, 101);\n"
-"selection-background-color: rgb(91, 112, 101);")
-        self.Charts_browser.setUrl(QUrl(u"about:blank"))
-
-        self.gridLayout_2.addWidget(self.Charts_browser, 2, 0, 1, 7)
-
-        self.label = QLabel(self.Charts_page)
+        self.verticalLayout_3 = QVBoxLayout(self.Main_menu)
+        self.verticalLayout_3.setSpacing(0)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self._for_charts = QWidget(self.Main_menu)
+        self._for_charts.setObjectName(u"_for_charts")
+        self.horizontalLayout_3 = QHBoxLayout(self._for_charts)
+        self.horizontalLayout_3.setSpacing(5)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.horizontalLayout_3.setContentsMargins(10, 5, 5, 5)
+        self.label = QLabel(self._for_charts)
         self.label.setObjectName(u"label")
+        self.label.setMinimumSize(QSize(80, 0))
         self.label.setMaximumSize(QSize(80, 16777215))
         self.label.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         self.label.setStyleSheet(u"color: white;")
         self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.gridLayout_2.addWidget(self.label, 0, 0, 1, 1)
+        self.horizontalLayout_3.addWidget(self.label)
 
-        self.SymbolLineEdit = QLineEdit(self.Charts_page)
+        self.SymbolLineEdit = QLineEdit(self._for_charts)
         self.SymbolLineEdit.setObjectName(u"SymbolLineEdit")
+        self.SymbolLineEdit.setMinimumSize(QSize(80, 0))
         self.SymbolLineEdit.setMaximumSize(QSize(80, 20))
         self.SymbolLineEdit.setStyleSheet(u"color:white;")
         self.SymbolLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.gridLayout_2.addWidget(self.SymbolLineEdit, 0, 1, 1, 1)
+        self.horizontalLayout_3.addWidget(self.SymbolLineEdit)
 
-        self.ExchangeLineEdit = QLineEdit(self.Charts_page)
-        self.ExchangeLineEdit.setObjectName(u"ExchangeLineEdit")
-        self.ExchangeLineEdit.setMaximumSize(QSize(80, 20))
-
-        self.gridLayout_2.addWidget(self.ExchangeLineEdit, 0, 3, 1, 1)
-
-        self.ApplySymbol_button = QPushButton(self.Charts_page)
-        self.ApplySymbol_button.setObjectName(u"ApplySymbol_button")
-        self.ApplySymbol_button.setMaximumSize(QSize(70, 20))
-        self.ApplySymbol_button.setStyleSheet(u"Color: white;")
-
-        self.gridLayout_2.addWidget(self.ApplySymbol_button, 0, 4, 1, 1)
-
-        self.label_2 = QLabel(self.Charts_page)
+        self.label_2 = QLabel(self._for_charts)
         self.label_2.setObjectName(u"label_2")
+        self.label_2.setMinimumSize(QSize(80, 0))
         self.label_2.setMaximumSize(QSize(80, 20))
         self.label_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.gridLayout_2.addWidget(self.label_2, 0, 2, 1, 1)
+        self.horizontalLayout_3.addWidget(self.label_2)
+
+        self.ExchangeLineEdit = QLineEdit(self._for_charts)
+        self.ExchangeLineEdit.setObjectName(u"ExchangeLineEdit")
+        self.ExchangeLineEdit.setMinimumSize(QSize(80, 0))
+        self.ExchangeLineEdit.setMaximumSize(QSize(80, 20))
+        self.ExchangeLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.horizontalLayout_3.addWidget(self.ExchangeLineEdit)
+
+        self.ApplySymbol_button = QPushButton(self._for_charts)
+        self.ApplySymbol_button.setObjectName(u"ApplySymbol_button")
+        self.ApplySymbol_button.setMinimumSize(QSize(80, 0))
+        self.ApplySymbol_button.setMaximumSize(QSize(70, 20))
+        self.ApplySymbol_button.setStyleSheet(u"Color: white;")
+
+        self.horizontalLayout_3.addWidget(self.ApplySymbol_button)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_3.addItem(self.horizontalSpacer)
+
+
+        self.verticalLayout_3.addWidget(self._for_charts)
+
+        self.stackedWidget = QStackedWidget(self.Main_menu)
+        self.stackedWidget.setObjectName(u"stackedWidget")
+        self.Charts_page = QWidget()
+        self.Charts_page.setObjectName(u"Charts_page")
+        self.gridLayout_2 = QGridLayout(self.Charts_page)
+        self.gridLayout_2.setSpacing(0)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.Charts_browser1 = QWebEngineView(self.Charts_page)
+        self.Charts_browser1.setObjectName(u"Charts_browser1")
+        self.Charts_browser1.setUrl(QUrl(u"about:blank"))
+
+        self.gridLayout_2.addWidget(self.Charts_browser1, 1, 1, 1, 1)
+
+        self.Charts_browser3 = QWebEngineView(self.Charts_page)
+        self.Charts_browser3.setObjectName(u"Charts_browser3")
+        self.Charts_browser3.setUrl(QUrl(u"about:blank"))
+
+        self.gridLayout_2.addWidget(self.Charts_browser3, 1, 3, 1, 1)
+
+        self.Charts_browser2 = QWebEngineView(self.Charts_page)
+        self.Charts_browser2.setObjectName(u"Charts_browser2")
+        self.Charts_browser2.setUrl(QUrl(u"about:blank"))
+
+        self.gridLayout_2.addWidget(self.Charts_browser2, 1, 2, 1, 1)
+
+        self.Charts_browser4 = QWebEngineView(self.Charts_page)
+        self.Charts_browser4.setObjectName(u"Charts_browser4")
+        self.Charts_browser4.setUrl(QUrl(u"about:blank"))
+
+        self.gridLayout_2.addWidget(self.Charts_browser4, 2, 1, 1, 1)
+
+        self.Charts_browser5 = QWebEngineView(self.Charts_page)
+        self.Charts_browser5.setObjectName(u"Charts_browser5")
+        self.Charts_browser5.setUrl(QUrl(u"about:blank"))
+
+        self.gridLayout_2.addWidget(self.Charts_browser5, 2, 2, 1, 1)
+
+        self.Charts_browser6 = QWebEngineView(self.Charts_page)
+        self.Charts_browser6.setObjectName(u"Charts_browser6")
+        self.Charts_browser6.setUrl(QUrl(u"about:blank"))
+
+        self.gridLayout_2.addWidget(self.Charts_browser6, 2, 3, 1, 1)
 
         self.stackedWidget.addWidget(self.Charts_page)
         self.Settings_page = QWidget()
@@ -239,7 +288,7 @@ class Ui_MainWindow(object):
         self.Exchenges_page.setObjectName(u"Exchenges_page")
         self.stackedWidget.addWidget(self.Exchenges_page)
 
-        self.gridLayout.addWidget(self.stackedWidget, 0, 0, 1, 1)
+        self.verticalLayout_3.addWidget(self.stackedWidget)
 
 
         self.horizontalLayout.addWidget(self.Main_menu)
@@ -278,7 +327,7 @@ class Ui_MainWindow(object):
         self.Ai_predictions_button.setText(QCoreApplication.translate("MainWindow", u"Ai predictions", None))
         self.Arbitrage_button.setText(QCoreApplication.translate("MainWindow", u"Arbitrage pairs", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Symbol", None))
-        self.ApplySymbol_button.setText(QCoreApplication.translate("MainWindow", u"Apply", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Exchange", None))
+        self.ApplySymbol_button.setText(QCoreApplication.translate("MainWindow", u"Apply", None))
     # retranslateUi
 
