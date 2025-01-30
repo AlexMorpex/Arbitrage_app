@@ -1,0 +1,7 @@
+https://www.tradingview.com/widget-docs/widgets/tickers/ticker-tape/ - лента 
+https://www.tradingview.com/widget-docs/widgets/heatmaps/crypto-heatmap/ - хит мапа коинов 
+https://www.tradingview.com/widget-docs/widgets/screeners/crypto-mkt-screener/ -скринер капитализации
+https://www.tradingview.com/widget-docs/widgets/symbol-details/symbol-info/ - инфа по символу
+https://www.tradingview.com/widget-docs/widgets/symbol-details/technical-analysis/ - тех анализ 
+https://www.tradingview.com/widget-docs/widgets/calendars/economic-calendar/ - календарь
+https://www.tradingview.com/widget-docs/widgets/news/ - новости 

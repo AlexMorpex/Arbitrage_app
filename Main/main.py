@@ -1,6 +1,8 @@
-from PySide6.QtWidgets import QApplication, QWidget
+from PySide6.QtWidgets import QApplication, QWidget, QGraphicsRectItem
+from PySide6.QtCore import Qt
 import sys
 from MainWindow import *
+from tradingview_widgets import *
 
 
 class MainWindow(QMainWindow):
@@ -12,50 +14,33 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.Menu_button.clicked.connect(self.toggle_left_menu)
-        self.ui.ApplySymbol_button.clicked.connect(self.draw_chart)
 
-        exchange = 'Binance'
-        symbol = 'BTCUSDT'
-        html_code = f"""
-        <div id="tradingview-widget-container"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-        <script type="text/javascript">
-        new TradingView.widget({{
-            "container_id": "tradingview-widget-container",
-            "symbol": "{exchange}:{symbol}",
-            "interval": "D",
-            "theme": "dark",
-            "locale": "ru",
-            "width": "100%",
-            "height": "100%",
-            "overrides": {{
-                "mainSeriesProperties.showCountdown": true,
-                "paneProperties.background": "#1e222d",
-                "paneProperties.vertGridProperties.color": "#2a2e39",
-                "paneProperties.horzGridProperties.color": "#2a2e39",
-                "symbolWatermarkProperties.transparency": 90,
-                "scalesProperties.textColor": "#AAA"
-            }},
-            "drawing_tools": true
-        }});
-        </script>
-        <style>
-            html, body {{
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-            }}
-        </style>
-        """
+        html_code = html_technical_analysis('BINANCE','BTCUSDT')
+        # html_code = html_chart('Binance','BTCUSDT')
 
-        self.ui.Charts_browser1.setHtml(html_code)
-        self.ui.Charts_browser2.setHtml(html_code)
-        self.ui.Charts_browser3.setHtml(html_code)
-        self.ui.Charts_browser4.setHtml(html_code)
-        self.ui.Charts_browser5.setHtml(html_code)
-        self.ui.Charts_browser6.setHtml(html_code)
+        # self.ui.Charts_browser1.setHtml(html_code)
+        # self.ui.Charts_browser2.setHtml(html_code)
+        # self.ui.Charts_browser3.setHtml(html_code)
+        # self.ui.Charts_browser4.setHtml(html_code)
+        # self.ui.Charts_browser5.setHtml(html_code)
+        # self.ui.Charts_browser6.setHtml(html_code)
+
+        # self.ui.Charts_browser2.hide()
+        # self.ui.Charts_browser3.hide()
+        # self.ui.Charts_browser4.hide()
+        # self.ui.Charts_browser5.hide()
+        # self.ui.Charts_browser6.hide()
+
+        self.ui.Charts_browser_test.setHtml(html_code)
+        self.ui.stackedWidget.setCurrentIndex(6)
+
+        self.ui.Charts_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(0))
+        self.ui.Ai_predictions_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(2))
+        self.ui.Arbitrage_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(3))
+        self.ui.Settings_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(4))
+        self.ui.Account_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(5))
+        self.ui.Exchanges_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(6))
+
 
     def toggle_left_menu(self):
         if self.ui.LeftSide_menu.isVisible():
@@ -63,54 +48,8 @@ class MainWindow(QMainWindow):
         else:
             self.ui.LeftSide_menu.setVisible(True)
 
-    def draw_chart(self):
-        exchange = self.ui.ExchangeLineEdit.text()
-        symbol = self.ui.SymbolLineEdit.text()
-        html_code = f"""
-        <div id="tradingview-widget-container"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-        <script type="text/javascript">
-        new TradingView.widget({{
-            "container_id": "tradingview-widget-container",
-            "symbol": "{exchange}:{symbol}",
-            "interval": "D",
-            "theme": "dark",
-            "locale": "ru",
-            "width": "100%",
-            "height": "100%",
-            "exchange": "OKX",
-            "studies": [
-                "RSI@tv-basicstudies", 
-                "BollingerBands@tv-basicstudies"
-            ],
-            "overrides": {{
-                "mainSeriesProperties.showCountdown": true,
-                "paneProperties.background": "#1e222d",
-                "paneProperties.vertGridProperties.color": "#2a2e39",
-                "paneProperties.horzGridProperties.color": "#2a2e39",
-                "symbolWatermarkProperties.transparency": 90,
-                "scalesProperties.textColor": "#AAA"
-            }},
-            "drawing_tools": true
-        }});
-        </script>
-        <style>
-            html, body {{
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden; /* Отключает прокрутку */
-            }}
-        </style>
-        """
-
-        self.ui.Charts_browser1.setHtml(html_code)
-        self.ui.Charts_browser2.setHtml(html_code)
-        self.ui.Charts_browser3.setHtml(html_code)
-        self.ui.Charts_browser4.setHtml(html_code)
-        self.ui.Charts_browser5.setHtml(html_code)
-        self.ui.Charts_browser6.setHtml(html_code)
+    def change_page(self,index):
+        self.ui.stackedWidget.setCurrentIndex(0)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

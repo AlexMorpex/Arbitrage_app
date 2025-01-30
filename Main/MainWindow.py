@@ -16,10 +16,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWebEngineWidgets import QWebEngineView
-from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QLayout, QLineEdit, QMainWindow, QPushButton,
-    QSizePolicy, QSpacerItem, QStackedWidget, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QGraphicsView, QGridLayout, QHBoxLayout,
+    QLayout, QMainWindow, QPushButton, QScrollArea,
+    QSizePolicy, QSpacerItem, QStackedWidget, QTabWidget,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -168,62 +168,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self._for_charts = QWidget(self.Main_menu)
-        self._for_charts.setObjectName(u"_for_charts")
-        self.horizontalLayout_3 = QHBoxLayout(self._for_charts)
-        self.horizontalLayout_3.setSpacing(5)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalLayout_3.setContentsMargins(10, 5, 5, 5)
-        self.label = QLabel(self._for_charts)
-        self.label.setObjectName(u"label")
-        self.label.setMinimumSize(QSize(80, 0))
-        self.label.setMaximumSize(QSize(80, 16777215))
-        self.label.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
-        self.label.setStyleSheet(u"color: white;")
-        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.horizontalLayout_3.addWidget(self.label)
-
-        self.SymbolLineEdit = QLineEdit(self._for_charts)
-        self.SymbolLineEdit.setObjectName(u"SymbolLineEdit")
-        self.SymbolLineEdit.setMinimumSize(QSize(80, 0))
-        self.SymbolLineEdit.setMaximumSize(QSize(80, 20))
-        self.SymbolLineEdit.setStyleSheet(u"color:white;")
-        self.SymbolLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.horizontalLayout_3.addWidget(self.SymbolLineEdit)
-
-        self.label_2 = QLabel(self._for_charts)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setMinimumSize(QSize(80, 0))
-        self.label_2.setMaximumSize(QSize(80, 20))
-        self.label_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.horizontalLayout_3.addWidget(self.label_2)
-
-        self.ExchangeLineEdit = QLineEdit(self._for_charts)
-        self.ExchangeLineEdit.setObjectName(u"ExchangeLineEdit")
-        self.ExchangeLineEdit.setMinimumSize(QSize(80, 0))
-        self.ExchangeLineEdit.setMaximumSize(QSize(80, 20))
-        self.ExchangeLineEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.horizontalLayout_3.addWidget(self.ExchangeLineEdit)
-
-        self.ApplySymbol_button = QPushButton(self._for_charts)
-        self.ApplySymbol_button.setObjectName(u"ApplySymbol_button")
-        self.ApplySymbol_button.setMinimumSize(QSize(80, 0))
-        self.ApplySymbol_button.setMaximumSize(QSize(70, 20))
-        self.ApplySymbol_button.setStyleSheet(u"Color: white;")
-
-        self.horizontalLayout_3.addWidget(self.ApplySymbol_button)
-
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_3.addItem(self.horizontalSpacer)
-
-
-        self.verticalLayout_3.addWidget(self._for_charts)
-
         self.stackedWidget = QStackedWidget(self.Main_menu)
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.Charts_page = QWidget()
@@ -232,41 +176,46 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setSpacing(0)
         self.gridLayout_2.setObjectName(u"gridLayout_2")
         self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.Charts_browser1 = QWebEngineView(self.Charts_page)
-        self.Charts_browser1.setObjectName(u"Charts_browser1")
-        self.Charts_browser1.setUrl(QUrl(u"about:blank"))
+        self.Charts_browser6 = QWebEngineView(self.Charts_page)
+        self.Charts_browser6.setObjectName(u"Charts_browser6")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.Charts_browser6.sizePolicy().hasHeightForWidth())
+        self.Charts_browser6.setSizePolicy(sizePolicy3)
+        self.Charts_browser6.setUrl(QUrl(u"about:blank"))
 
-        self.gridLayout_2.addWidget(self.Charts_browser1, 1, 1, 1, 1)
-
-        self.Charts_browser3 = QWebEngineView(self.Charts_page)
-        self.Charts_browser3.setObjectName(u"Charts_browser3")
-        self.Charts_browser3.setUrl(QUrl(u"about:blank"))
-
-        self.gridLayout_2.addWidget(self.Charts_browser3, 1, 3, 1, 1)
+        self.gridLayout_2.addWidget(self.Charts_browser6, 1, 3, 1, 1)
 
         self.Charts_browser2 = QWebEngineView(self.Charts_page)
         self.Charts_browser2.setObjectName(u"Charts_browser2")
         self.Charts_browser2.setUrl(QUrl(u"about:blank"))
 
-        self.gridLayout_2.addWidget(self.Charts_browser2, 1, 2, 1, 1)
+        self.gridLayout_2.addWidget(self.Charts_browser2, 0, 2, 1, 1)
 
-        self.Charts_browser4 = QWebEngineView(self.Charts_page)
-        self.Charts_browser4.setObjectName(u"Charts_browser4")
-        self.Charts_browser4.setUrl(QUrl(u"about:blank"))
+        self.Charts_browser3 = QWebEngineView(self.Charts_page)
+        self.Charts_browser3.setObjectName(u"Charts_browser3")
+        self.Charts_browser3.setUrl(QUrl(u"about:blank"))
 
-        self.gridLayout_2.addWidget(self.Charts_browser4, 2, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.Charts_browser3, 0, 3, 1, 1)
 
         self.Charts_browser5 = QWebEngineView(self.Charts_page)
         self.Charts_browser5.setObjectName(u"Charts_browser5")
         self.Charts_browser5.setUrl(QUrl(u"about:blank"))
 
-        self.gridLayout_2.addWidget(self.Charts_browser5, 2, 2, 1, 1)
+        self.gridLayout_2.addWidget(self.Charts_browser5, 1, 2, 1, 1)
 
-        self.Charts_browser6 = QWebEngineView(self.Charts_page)
-        self.Charts_browser6.setObjectName(u"Charts_browser6")
-        self.Charts_browser6.setUrl(QUrl(u"about:blank"))
+        self.Charts_browser4 = QWebEngineView(self.Charts_page)
+        self.Charts_browser4.setObjectName(u"Charts_browser4")
+        self.Charts_browser4.setUrl(QUrl(u"about:blank"))
 
-        self.gridLayout_2.addWidget(self.Charts_browser6, 2, 3, 1, 1)
+        self.gridLayout_2.addWidget(self.Charts_browser4, 1, 1, 1, 1)
+
+        self.Charts_browser1 = QWebEngineView(self.Charts_page)
+        self.Charts_browser1.setObjectName(u"Charts_browser1")
+        self.Charts_browser1.setUrl(QUrl(u"about:blank"))
+
+        self.gridLayout_2.addWidget(self.Charts_browser1, 0, 1, 1, 1)
 
         self.stackedWidget.addWidget(self.Charts_page)
         self.Settings_page = QWidget()
@@ -283,9 +232,69 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.Ai_predictions_page)
         self.Arbitrage_pairs_page = QWidget()
         self.Arbitrage_pairs_page.setObjectName(u"Arbitrage_pairs_page")
+        self.gridLayout = QGridLayout(self.Arbitrage_pairs_page)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setHorizontalSpacing(0)
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.tabWidget = QTabWidget(self.Arbitrage_pairs_page)
+        self.tabWidget.setObjectName(u"tabWidget")
+        self.tab = QWidget()
+        self.tab.setObjectName(u"tab")
+        self.tabWidget.addTab(self.tab, "")
+        self.tab_2 = QWidget()
+        self.tab_2.setObjectName(u"tab_2")
+        self.pushButton = QPushButton(self.tab_2)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(240, 120, 75, 24))
+        self.tabWidget.addTab(self.tab_2, "")
+
+        self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
+
         self.stackedWidget.addWidget(self.Arbitrage_pairs_page)
         self.Exchenges_page = QWidget()
         self.Exchenges_page.setObjectName(u"Exchenges_page")
+        self.verticalLayout_4 = QVBoxLayout(self.Exchenges_page)
+        self.verticalLayout_4.setSpacing(10)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.scrollArea = QScrollArea(self.Exchenges_page)
+        self.scrollArea.setObjectName(u"scrollArea")
+        sizePolicy3.setHeightForWidth(self.scrollArea.sizePolicy().hasHeightForWidth())
+        self.scrollArea.setSizePolicy(sizePolicy3)
+        self.scrollArea.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, -504, 975, 1000))
+        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.scrollAreaWidgetContents.sizePolicy().hasHeightForWidth())
+        self.scrollAreaWidgetContents.setSizePolicy(sizePolicy4)
+        self.scrollAreaWidgetContents.setMinimumSize(QSize(0, 1000))
+        self.Charts_browser_test = QWebEngineView(self.scrollAreaWidgetContents)
+        self.Charts_browser_test.setObjectName(u"Charts_browser_test")
+        self.Charts_browser_test.setGeometry(QRect(618, 11, 350, 1100))
+        sizePolicy3.setHeightForWidth(self.Charts_browser_test.sizePolicy().hasHeightForWidth())
+        self.Charts_browser_test.setSizePolicy(sizePolicy3)
+        self.Charts_browser_test.setStyleSheet(u"")
+        self.Charts_browser_test.setUrl(QUrl(u"about:blank"))
+        self.Charts_browser1_2 = QWebEngineView(self.scrollAreaWidgetContents)
+        self.Charts_browser1_2.setObjectName(u"Charts_browser1_2")
+        self.Charts_browser1_2.setGeometry(QRect(10, 10, 601, 311))
+        self.Charts_browser1_2.setMaximumSize(QSize(1000, 500))
+        self.Charts_browser1_2.setUrl(QUrl(u"about:blank"))
+        self.graphicsView = QGraphicsView(self.scrollAreaWidgetContents)
+        self.graphicsView.setObjectName(u"graphicsView")
+        self.graphicsView.setGeometry(QRect(25, 360, 521, 192))
+        self.graphicsView.setStyleSheet(u"background-color:white;")
+        self.widget = QWidget(self.scrollAreaWidgetContents)
+        self.widget.setObjectName(u"widget")
+        self.widget.setGeometry(QRect(40, 600, 271, 161))
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.verticalLayout_4.addWidget(self.scrollArea)
+
         self.stackedWidget.addWidget(self.Exchenges_page)
 
         self.verticalLayout_3.addWidget(self.stackedWidget)
@@ -308,7 +317,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(6)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -326,8 +336,8 @@ class Ui_MainWindow(object):
         self.Exchanges_button.setText(QCoreApplication.translate("MainWindow", u"Exchanges", None))
         self.Ai_predictions_button.setText(QCoreApplication.translate("MainWindow", u"Ai predictions", None))
         self.Arbitrage_button.setText(QCoreApplication.translate("MainWindow", u"Arbitrage pairs", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Symbol", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Exchange", None))
-        self.ApplySymbol_button.setText(QCoreApplication.translate("MainWindow", u"Apply", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Tab 1", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Tab 2", None))
     # retranslateUi
 
