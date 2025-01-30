@@ -3,7 +3,7 @@ from PySide6.QtCore import Qt
 import sys
 from MainWindow import *
 from tradingview_widgets import *
-
+from WebWidget import *
 
 class MainWindow(QMainWindow):
    
@@ -33,6 +33,10 @@ class MainWindow(QMainWindow):
 
         self.ui.Charts_browser_test.setHtml(html_code)
         self.ui.stackedWidget.setCurrentIndex(6)
+
+        self.webv = WebWidget()
+        self.webv.webview.setHtml(html_code)
+        self.ui.frame(WebWidget)
 
         self.ui.Charts_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(0))
         self.ui.Ai_predictions_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(2))

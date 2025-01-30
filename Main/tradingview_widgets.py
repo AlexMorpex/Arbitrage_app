@@ -19,12 +19,12 @@ def html_chart(exchange='BINANCE',symbol='BTCUSDT'):
         }}
         </script>
         <style>
-                    html, body {{
-                        margin: 0;
-                        padding: 0;
-                        width: 100%;
-                        height: 100%;
-                        overflow: hidden;
+            html, body {{
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
                     }}
                 </style>
         </div>
@@ -111,7 +111,6 @@ def html_heatmap():
     </div>
         """
     return html
-
 
 def html_crypto_mkt_screener():
     html = f"""

@@ -16,10 +16,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWebEngineWidgets import QWebEngineView
-from PySide6.QtWidgets import (QApplication, QGraphicsView, QGridLayout, QHBoxLayout,
-    QLayout, QMainWindow, QPushButton, QScrollArea,
-    QSizePolicy, QSpacerItem, QStackedWidget, QTabWidget,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QGraphicsView, QGridLayout,
+    QHBoxLayout, QLayout, QMainWindow, QPushButton,
+    QScrollArea, QSizePolicy, QSpacerItem, QStackedWidget,
+    QTabWidget, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -265,7 +265,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, -504, 975, 1000))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, -476, 975, 1000))
         sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         sizePolicy4.setHorizontalStretch(0)
         sizePolicy4.setVerticalStretch(0)
@@ -288,9 +288,20 @@ class Ui_MainWindow(object):
         self.graphicsView.setObjectName(u"graphicsView")
         self.graphicsView.setGeometry(QRect(25, 360, 521, 192))
         self.graphicsView.setStyleSheet(u"background-color:white;")
-        self.widget = QWidget(self.scrollAreaWidgetContents)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(40, 600, 271, 161))
+        self.verticalLayoutWidget = QWidget(self.scrollAreaWidgetContents)
+        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
+        self.verticalLayoutWidget.setGeometry(QRect(20, 570, 331, 181))
+        self.layout_test = QVBoxLayout(self.verticalLayoutWidget)
+        self.layout_test.setObjectName(u"layout_test")
+        self.layout_test.setContentsMargins(0, 0, 0, 0)
+        self.frame = QFrame(self.scrollAreaWidgetContents)
+        self.frame.setObjectName(u"frame")
+        self.frame.setGeometry(QRect(90, 810, 491, 131))
+        self.frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Shadow.Raised)
+        self.pushButton_2 = QPushButton(self.frame)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setGeometry(QRect(80, 40, 75, 24))
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
         self.verticalLayout_4.addWidget(self.scrollArea)
@@ -339,5 +350,6 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Tab 1", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Tab 2", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
     # retranslateUi
 

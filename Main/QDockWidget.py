@@ -6,7 +6,7 @@ from PySide6.QtCore import Qt, QRectF
 from PySide6.QtGui import QBrush, QColor, QPainter
 from PySide6.QtWebEngineWidgets import QWebEngineView
 
-class DraggableItem(QGraphicsRectItem,QWebEngineView):
+class DraggableItem(QGraphicsRectItem):
     """ Виджет, который можно перетаскивать и изменять размер """
     
     def __init__(self, x, y, width=100, height=60):
@@ -18,7 +18,6 @@ class DraggableItem(QGraphicsRectItem,QWebEngineView):
             QGraphicsRectItem.ItemIsSelectable |  # Выделение
             QGraphicsRectItem.ItemIsFocusable  # Фокусировка
         )
-
 
     def mousePressEvent(self, event):
         """ При нажатии мыши элемент выделяется """

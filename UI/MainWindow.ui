@@ -554,7 +554,7 @@ color:white;</string>
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-504</y>
+                   <y>-476</y>
                    <width>975</width>
                    <height>1000</height>
                   </rect>
@@ -629,15 +629,45 @@ color:white;</string>
                    <string notr="true">background-color:white;</string>
                   </property>
                  </widget>
-                 <widget class="QWidget" name="widget" native="true">
+                 <widget class="QWidget" name="verticalLayoutWidget">
                   <property name="geometry">
                    <rect>
-                    <x>40</x>
-                    <y>600</y>
-                    <width>271</width>
-                    <height>161</height>
+                    <x>20</x>
+                    <y>570</y>
+                    <width>331</width>
+                    <height>181</height>
                    </rect>
                   </property>
+                  <layout class="QVBoxLayout" name="layout_test"/>
+                 </widget>
+                 <widget class="QFrame" name="frame">
+                  <property name="geometry">
+                   <rect>
+                    <x>90</x>
+                    <y>810</y>
+                    <width>491</width>
+                    <height>131</height>
+                   </rect>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::Shape::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Shadow::Raised</enum>
+                  </property>
+                  <widget class="QPushButton" name="pushButton_2">
+                   <property name="geometry">
+                    <rect>
+                     <x>80</x>
+                     <y>40</y>
+                     <width>75</width>
+                     <height>24</height>
+                    </rect>
+                   </property>
+                   <property name="text">
+                    <string>PushButton</string>
+                   </property>
+                  </widget>
                  </widget>
                 </widget>
                </widget>
