@@ -9,7 +9,7 @@ def html_chart(exchange='BINANCE',symbol='BTCUSDT'):
         "timezone": "Etc/UTC",
         "theme": "dark",
         "style": "1",
-        "locale": "en",
+        "locale": "ru",
         "hide_side_toolbar": false,
         "allow_symbol_change": true,
         "save_image": true,

@@ -2,41 +2,27 @@ from PySide6.QtWidgets import QApplication, QWidget, QGraphicsRectItem
 from PySide6.QtCore import Qt
 import sys
 from MainWindow import *
-from tradingview_widgets import *
-from WebWidget import *
+from TradingViewWidgets import *
+# from WebWidget import *
 
 class MainWindow(QMainWindow):
    
     def __init__(self):
         QMainWindow.__init__(self)
-
-
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.Menu_button.clicked.connect(self.toggle_left_menu)
 
-        html_code = html_technical_analysis('BINANCE','BTCUSDT')
-        # html_code = html_chart('Binance','BTCUSDT')
-
-        # self.ui.Charts_browser1.setHtml(html_code)
-        # self.ui.Charts_browser2.setHtml(html_code)
-        # self.ui.Charts_browser3.setHtml(html_code)
-        # self.ui.Charts_browser4.setHtml(html_code)
-        # self.ui.Charts_browser5.setHtml(html_code)
-        # self.ui.Charts_browser6.setHtml(html_code)
-
-        # self.ui.Charts_browser2.hide()
-        # self.ui.Charts_browser3.hide()
-        # self.ui.Charts_browser4.hide()
-        # self.ui.Charts_browser5.hide()
-        # self.ui.Charts_browser6.hide()
-
+        html_code = html_chart('BINANCE','BTCUSDT')
         self.ui.Charts_browser_test.setHtml(html_code)
-        self.ui.stackedWidget.setCurrentIndex(6)
+        self.ui.stackedWidget.setCurrentIndex(0)
 
-        self.webv = WebWidget()
-        self.webv.webview.setHtml(html_code)
-        self.ui.frame(WebWidget)
+        self.ui.Charts_browser1.setHtml(html_code)
+        self.ui.Charts_browser2.setHtml(html_code)
+        self.ui.Charts_browser3.setHtml(html_code)
+        self.ui.Charts_browser4.setHtml(html_code)
+        self.ui.Charts_browser5.setHtml(html_code)
+        self.ui.Charts_browser6.setHtml(html_code)
 
         self.ui.Charts_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(0))
         self.ui.Ai_predictions_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(2))
