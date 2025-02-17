@@ -57,12 +57,14 @@ class MainWindow(QMainWindow):
 
         self.central_widget = QFrame()
         self.setCentralWidget(self.central_widget)
-
+    
         self.add_button = QPushButton("Добавить виджет")
         self.add_button.clicked.connect(self.add_draggable_widget)
 
         self.layout = QVBoxLayout(self.central_widget)
         self.layout.addWidget(self.add_button)
+
+        self.layout.addWidget(DraggableWidget())
 
     def add_draggable_widget(self):
         """Добавляет новый перемещаемый виджет"""
