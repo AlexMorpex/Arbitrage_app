@@ -7,8 +7,8 @@ from TradingViewWidgets import *
 class DraggableWidget(QFrame):
     def __init__(self,parent=None):
         super().__init__(parent)
-        # self.setMinimumSize(200, 150)
-        # self.resize(400, 300)
+        self.setMinimumSize(200, 150)
+        self.resize(400, 300)
         self.setStyleSheet("border: 0px solid red; background-color: white;")
 
         self.main_layout = QVBoxLayout(self)

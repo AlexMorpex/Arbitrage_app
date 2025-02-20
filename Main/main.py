@@ -15,6 +15,7 @@ class MainWindow(QMainWindow):
 
         html_code = html_chart('BINANCE','BTCUSDT')
         self.ui.stackedWidget.setCurrentIndex(6)
+        self.draggable_widgets = []  # Инициализируем список для хранения виджетов
 
         self.ui.Charts_browser1.setHtml(html_code)
         self.ui.Charts_browser2.setHtml(html_code)
@@ -31,7 +32,8 @@ class MainWindow(QMainWindow):
         self.ui.Exchanges_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(6))
 
         self.ui.ChartsToolsMenu.clicked.connect(self.toggle_ToolsMenu)
-        self.ui.SymbolINfoBtn.clicked.connect(lambda:self.ui.DraggableLayout.addWidget(DraggableWidget()))
+        self.ui.SymbolINfoBtn.clicked.connect(self.add_draggable_widget)
+        # self.ui.SymbolINfoBtn.clicked.connect(lambda:self.ui.DraggableLayout.addWidget(DraggableWidget()))
         self.ui.DraggableLayout.addWidget(DraggableWidget())
         item = self.ui.DraggableLayout.takeAt(0)
         widget = item.widget()
@@ -56,6 +58,22 @@ class MainWindow(QMainWindow):
         else:
             self.ui.ToolsMenu_Left.setVisible(True)
             self.ui.ToolsMenu_Right.setVisible(True)
+
+    def add_draggable_widget(self):
+    # Получаем текущую страницу `stackedWidget`
+        current_page = self.ui.stackedWidget.currentWidget()
+        
+        # Создаём новый DraggableWidget с `current_page` в качестве родителя
+        widget = DraggableWidget(current_page)
+        
+        # Смещение каждого нового виджета
+        offset = 20 * len(current_page.findChildren(DraggableWidget))  
+
+        widget.move(100 + offset, 100 + offset)  # Размещаем с небольшим смещением
+        widget.show()  # Показываем
+        widget.raise_()  # Поднимаем поверх других
+    
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
