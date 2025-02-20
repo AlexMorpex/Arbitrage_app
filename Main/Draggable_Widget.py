@@ -1,15 +1,14 @@
 from PySide6.QtCore import Qt, QPointF
 from PySide6.QtGui import QCursor
-from PySide6.QtWidgets import QApplication, QWidget,QSpacerItem,QSizePolicy,\
-QSpacerItem,QVBoxLayout, QHBoxLayout, QPushButton, QMainWindow, QFrame
+from PySide6.QtWidgets import QWidget,QVBoxLayout, QHBoxLayout, QPushButton, QFrame
 from PySide6.QtWebEngineWidgets import QWebEngineView
-from TradingViewWidgets import html_chart
+from TradingViewWidgets import *
 
 class DraggableWidget(QFrame):
-    def __init__(self, parent=None):
+    def __init__(self,parent=None):
         super().__init__(parent)
-        self.setMinimumSize(200, 150)
-        self.resize(400, 300)
+        # self.setMinimumSize(200, 150)
+        # self.resize(400, 300)
         self.setStyleSheet("border: 0px solid red; background-color: white;")
 
         self.main_layout = QVBoxLayout(self)
@@ -101,38 +100,3 @@ class DraggableWidget(QFrame):
             self.setCursor(Qt.SizeVerCursor)
         else:
             self.setCursor(Qt.ArrowCursor)
-
-class MainWindow(QMainWindow):
-    def __init__(self):
-        super().__init__()
-        self.setWindowTitle("Перемещение и Изменение Размеров Виджета")
-        self.setGeometry(100, 100, 600, 400)
-
-        self.central_widget = QWidget()
-        self.setCentralWidget(self.central_widget)
-    
-        self.add_button = QPushButton("Добавить виджет")
-        self.add_button.clicked.connect(self.add_draggable_widget)
-
-        self.layout = QVBoxLayout(self.central_widget)
-        self.layout.addWidget(self.add_button)
-
-        self.layout.addWidget(DraggableWidget())
-        item = self.layout.takeAt(1)
-        widget = item.widget()
-        widget.deleteLater()
-
-
-    def add_draggable_widget(self):
-        """Добавляет новый перемещаемый и изменяемый виджет"""
-        widget = DraggableWidget(self)
-        widget.move(50, 50)
-        widget.show()
-
-if __name__ == "__main__":
-    app = QApplication([])
-
-    window = MainWindow()
-    window.show()
-
-    app.exec()

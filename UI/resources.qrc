@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="Icons">
+    <file>icons/calendar.svg</file>
+    <file>icons/candle-chart.svg</file>
+    <file>icons/heat-map.svg</file>
+    <file>icons/menu.svg</file>
+    <file>icons/news.svg</file>
+    <file>icons/screener.svg</file>
+    <file>icons/symbol-info.svg</file>
+    <file>icons/technical-analysis.svg</file>
+    <file>icons/tickertape.svg</file>
+  </qresource>
+</RCC>
