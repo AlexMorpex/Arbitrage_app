@@ -32,16 +32,16 @@ class MainWindow(QMainWindow):
         self.ui.Exchanges_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(6))
 
         self.ui.ChartsToolsMenu.clicked.connect(self.toggle_ToolsMenu)
-        self.ui.SymbolINfoBtn.clicked.connect(self.add_draggable_widget)
-        # self.ui.SymbolINfoBtn.clicked.connect(lambda:self.ui.DraggableLayout.addWidget(DraggableWidget()))
-        self.ui.DraggableLayout.addWidget(DraggableWidget())
-        item = self.ui.DraggableLayout.takeAt(0)
-        widget = item.widget()
-        widget.deleteLater()
+        self.ui.SymbolINfoBtn.clicked.connect(lambda:self.add_draggable_widget(html_symbol_info(),height=225,width=564))
+        self.ui.ChartBtn.clicked.connect(lambda:self.add_draggable_widget(html_chart()))
+        self.ui.CalendarBtn.clicked.connect(lambda:self.add_draggable_widget(html_economic_calendar()))
+        self.ui.HeatMapBtn.clicked.connect(lambda:self.add_draggable_widget(html_heatmap()))
+        self.ui.NewsBtn.clicked.connect(lambda:self.add_draggable_widget(html_news()))
+        self.ui.ScreenerBtn.clicked.connect(lambda:self.add_draggable_widget(html_crypto_mkt_screener()))
+        self.ui.AnalysisBtn.clicked.connect(lambda:self.add_draggable_widget(html_technical_analysis()))
+        self.ui.TickerTapeBtn.clicked.connect(lambda:self.add_draggable_widget(html_ticker_tape()))
 
-        # widget = DraggableWidget(self)
-        # widget.move(50, 50)
-        # widget.show()
+
     def toggle_left_menu(self):
         if self.ui.LeftSide_menu.isVisible():
             self.ui.LeftSide_menu.setVisible(False)
@@ -59,12 +59,12 @@ class MainWindow(QMainWindow):
             self.ui.ToolsMenu_Left.setVisible(True)
             self.ui.ToolsMenu_Right.setVisible(True)
 
-    def add_draggable_widget(self):
+    def add_draggable_widget(self,html,height=100,width=500):
     # Получаем текущую страницу `stackedWidget`
         current_page = self.ui.stackedWidget.currentWidget()
         
         # Создаём новый DraggableWidget с `current_page` в качестве родителя
-        widget = DraggableWidget(current_page)
+        widget = DraggableWidget(current_page,html,height=height,width=width)
         
         # Смещение каждого нового виджета
         offset = 20 * len(current_page.findChildren(DraggableWidget))  

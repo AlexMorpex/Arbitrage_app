@@ -4,32 +4,34 @@ from PySide6.QtWidgets import QWidget,QVBoxLayout, QHBoxLayout, QPushButton, QFr
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from TradingViewWidgets import *
 
+BASE_HTML = html_chart()
 class DraggableWidget(QFrame):
-    def __init__(self,parent=None):
+    def __init__(self,parent=None,html=BASE_HTML,height=100,width=500):
         super().__init__(parent)
-        self.setMinimumSize(200, 150)
-        self.resize(400, 300)
-        self.setStyleSheet("border: 0px solid red; background-color: white;")
+        self.setMinimumSize(150, 25)
+        self.resize(width, height)
+
+        self.setStyleSheet("border: 1px; background-color: #1d1d1d;")
 
         self.main_layout = QVBoxLayout(self)
-        self.main_layout.setContentsMargins(0, 0, 5, 5)
+        self.main_layout.setContentsMargins(5, 5, 10,10)
         
         self.top_bar = QWidget()
-        self.top_bar.setFixedHeight(25)
+        self.top_bar.setFixedHeight(15)
         self.top_layout = QHBoxLayout(self.top_bar)
         self.top_layout.setContentsMargins(0, 0, 0, 0)
         self.top_layout.addStretch()
         
         self.close_button = QPushButton("\u2716")
         self.close_button.setFixedSize(20, 20)
-        self.close_button.setStyleSheet("border: none; font-size: 14px; color: black;")
+        self.close_button.setStyleSheet("border: none; font-size: 14px; color: white;")
         self.close_button.clicked.connect(self.close)
         
         self.top_layout.addWidget(self.close_button)
         self.main_layout.addWidget(self.top_bar)
 
         self.chart = QWebEngineView()
-        self.chart.setHtml(html_chart())
+        self.chart.setHtml(html)
         self.main_layout.addWidget(self.chart)
 
         self.dragging = False

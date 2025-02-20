@@ -66,7 +66,7 @@ def html_ticker_tape():
         "locale": "ru"
         }}
         </script>
-  <style>
+        <style>
                     html, body {{
                         margin: 0;
                         padding: 0;
@@ -75,7 +75,7 @@ def html_ticker_tape():
                         overflow: hidden;
                     }}
                 </style>
-</div>
+        </div>
     """
     return html
 
@@ -145,7 +145,6 @@ def html_symbol_info(exchange='BINANCE',symbol='BTCUSDT'):
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
         {{
         "symbol": "{exchange}:{symbol}",
-        "width": "550",
         "locale": "ru",
         "colorTheme": "dark",
         "isTransparent": false
@@ -170,9 +169,7 @@ def html_technical_analysis(exchange='BINANCE',symbol='BTCUSDT'):
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
             {{
             "interval": "1m",
-            "width": "100%",
             "isTransparent": false,
-            "height": "100%",
             "symbol": "BINANCE:BTCUSDT",
             "showIntervalTabs": true,
             "displayMode": "multiple",
@@ -193,14 +190,57 @@ def html_technical_analysis(exchange='BINANCE',symbol='BTCUSDT'):
     """
     return html
 
-def html_economic_calendar(exchange='BINANCE',symbol='BTCUSDT'):
+def html_economic_calendar():
     html = f"""
-
+        <div class="tradingview-widget-container">
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+            {{
+            "colorTheme": "dark",
+            "isTransparent": false,
+            "width": "100%",
+            "height": "100%",
+            "locale": "ru",
+            "importanceFilter": "-1,0,1",
+            "countryFilter": "ar,au,br,ca,cn,fr,de,in,id,it,jp,kr,mx,ru,sa,za,tr,gb,us,eu"
+            }}
+            </script>
+            <style>
+            html, body {{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }}
+        </style>
+        </div>
     """
     return html
 
-def html_news(exchange='BINANCE',symbol='BTCUSDT'):
+def html_news():
     html = f"""
-
+        <style>
+        html, body {{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: rgb(0, 0, 0);
+        }}
+        </style>
+        <div class="tradingview-widget-container">
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+        {{
+        "feedMode": "all_symbols",
+        "isTransparent": false,
+        "displayMode": "regular",
+        "width": 100%,
+        "height": 100%,
+        "colorTheme": "dark",
+        "locale": "ru"
+        }}
+        </script>
+        </div>
     """
     return html
