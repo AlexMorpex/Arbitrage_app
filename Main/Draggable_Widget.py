@@ -6,10 +6,13 @@ from TradingViewWidgets import *
 
 BASE_HTML = html_chart()
 class DraggableWidget(QFrame):
-    def __init__(self,parent=None,html=BASE_HTML,height=100,width=500):
+    def __init__(self,parent=None,html=BASE_HTML,height=100,width=500,mh=20,mw=50):
         super().__init__(parent)
-        self.setMinimumSize(150, 25)
-        self.resize(width, height)
+        self.resize(width,height)
+        self.setMaximumHeight(height+mh)
+        self.setMaximumWidth(width+mw)
+        self.setMinimumWidth(90)
+        self.setMinimumHeight(30)
 
         self.setStyleSheet("border: 1px; background-color: #1d1d1d;")
 
@@ -48,14 +51,29 @@ class DraggableWidget(QFrame):
             else:
                 self.dragging = True
                 self.offset = event.position().toPoint()
-
     def mouseMoveEvent(self, event):
         if self.resizing:
             self.resize_widget(event)
         elif self.dragging:
-            self.move(self.mapToParent(event.position().toPoint() - self.offset))
+            if  self.pos().x() < 0:
+                self.move(1,self.pos().y())
+                self.dragging=False
+            elif self.pos().y() < 0:
+                self.move(self.pos().x(),1)
+                self.dragging=False
+            elif self.pos().x()+self.width() > self.parentWidget().width():
+                self.move(self.parentWidget().width()-self.width(),self.pos().y())
+                self.dragging=False
+            else:     
+                self.move(self.mapToParent(event.position().toPoint() - self.offset))
         self.update_cursor(event.position().toPoint())
+        print(f"""self.parentWidget().width() : {self.parentWidget().width()}'\n'
+                  self.width() : {self.width()} '\n'
+                  self.pos().x()+self.width() : {self.pos().x()+self.width()}
+              """)
 
+
+        
     def mouseReleaseEvent(self, event):
         if event.button() == Qt.LeftButton:
             self.dragging = False
@@ -77,19 +95,11 @@ class DraggableWidget(QFrame):
         dy = event.position().toPoint().y() - self.height()
         left, right, top, bottom = self.resize_direction
 
-        new_x = self.x() - dx if left else self.x()
-        new_y = self.y() - dy if top else self.y()
         new_width = max(self.minimumWidth(), self.width() + (dx if right else -dx if left else 0))
         new_height = max(self.minimumHeight(), self.height() + (dy if bottom else -dy if top else 0))
         
         if right or bottom:
             self.resize(new_width, new_height)
-
-# Если раскоментить то будет вылетать при изменении сверху и слева
-        # if left or top:
-        #     self.setGeometry(new_x, new_y, new_width, new_height)
-        # else:
-        #     self.resize(new_width, new_height)
 
     def update_cursor(self, pos, margin=10):
         left, right, top, bottom = self.get_resize_direction(pos, margin)

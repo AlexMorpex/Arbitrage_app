@@ -32,9 +32,9 @@ class MainWindow(QMainWindow):
         self.ui.Exchanges_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(6))
 
         self.ui.ChartsToolsMenu.clicked.connect(self.toggle_ToolsMenu)
-        self.ui.SymbolINfoBtn.clicked.connect(lambda:self.add_draggable_widget(html_symbol_info(),height=225,width=564))
-        self.ui.ChartBtn.clicked.connect(lambda:self.add_draggable_widget(html_chart()))
-        self.ui.CalendarBtn.clicked.connect(lambda:self.add_draggable_widget(html_economic_calendar()))
+        self.ui.SymbolINfoBtn.clicked.connect(lambda:self.add_draggable_widget(html_symbol_info(),height=200,width=400))
+        self.ui.CalendarBtn.clicked.connect(lambda:self.add_draggable_widget(html_economic_calendar(),height=600,width=250))
+        self.ui.ChartBtn.clicked.connect(lambda:self.add_draggable_widget(html_chart(),height=400,width=400,mh=300,mw=600))
         self.ui.HeatMapBtn.clicked.connect(lambda:self.add_draggable_widget(html_heatmap()))
         self.ui.NewsBtn.clicked.connect(lambda:self.add_draggable_widget(html_news()))
         self.ui.ScreenerBtn.clicked.connect(lambda:self.add_draggable_widget(html_crypto_mkt_screener()))
@@ -59,12 +59,12 @@ class MainWindow(QMainWindow):
             self.ui.ToolsMenu_Left.setVisible(True)
             self.ui.ToolsMenu_Right.setVisible(True)
 
-    def add_draggable_widget(self,html,height=100,width=500):
+    def add_draggable_widget(self,html,height=100,width=500,mh=20,mw=50):
     # Получаем текущую страницу `stackedWidget`
         current_page = self.ui.stackedWidget.currentWidget()
         
         # Создаём новый DraggableWidget с `current_page` в качестве родителя
-        widget = DraggableWidget(current_page,html,height=height,width=width)
+        widget = DraggableWidget(current_page,html,height=height,width=width,mh=mh,mw=mw)
         
         # Смещение каждого нового виджета
         offset = 20 * len(current_page.findChildren(DraggableWidget))  
