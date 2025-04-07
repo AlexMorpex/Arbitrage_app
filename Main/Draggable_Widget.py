@@ -67,29 +67,19 @@ class DraggableWidget(QFrame):
             else:     
                 self.move(self.mapToParent(event.position().toPoint() - self.offset))
         self.update_cursor(event.position().toPoint())
-        print(f"""self.parentWidget().width() : {self.parentWidget().width()}'\n'
-                  self.width() : {self.width()} '\n'
-                  self.pos().x()+self.width() : {self.pos().x()+self.width()}
-              """)
-
-
-        
     def mouseReleaseEvent(self, event):
         if event.button() == Qt.LeftButton:
             self.dragging = False
             self.resizing = False
-
     def enterEvent(self, event):
         if hasattr(QCursor, "pos"):
             self.update_cursor(self.mapFromGlobal(QCursor.pos()))
-
     def get_resize_direction(self, pos, margin=10):
         left = pos.x() < margin
         right = pos.x() > self.width() - margin
         top = pos.y() < margin
         bottom = pos.y() > self.height() - margin
         return (left, right, top, bottom)
-
     def resize_widget(self, event):
         dx = event.position().toPoint().x() - self.width()
         dy = event.position().toPoint().y() - self.height()
@@ -100,7 +90,6 @@ class DraggableWidget(QFrame):
         
         if right or bottom:
             self.resize(new_width, new_height)
-
     def update_cursor(self, pos, margin=10):
         left, right, top, bottom = self.get_resize_direction(pos, margin)
         

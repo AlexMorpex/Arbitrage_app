@@ -4,6 +4,7 @@ import sys
 from MainWindow import *
 from TradingViewWidgets import *
 from Draggable_Widget import DraggableWidget
+from QTabWidget import TabWidget
 
 class MainWindow(QMainWindow):
    
@@ -25,7 +26,7 @@ class MainWindow(QMainWindow):
         self.ui.Charts_browser6.setHtml(html_code)
 
         self.ui.Charts_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(0))
-        self.ui.Ai_predictions_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(2))
+        self.ui.Ai_predictions_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(4))
         self.ui.Arbitrage_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(3))
         self.ui.Settings_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(4))
         self.ui.Account_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(5))
@@ -40,6 +41,16 @@ class MainWindow(QMainWindow):
         self.ui.ScreenerBtn.clicked.connect(lambda:self.add_draggable_widget(html_crypto_mkt_screener()))
         self.ui.AnalysisBtn.clicked.connect(lambda:self.add_draggable_widget(html_technical_analysis()))
         self.ui.TickerTapeBtn.clicked.connect(lambda:self.add_draggable_widget(html_ticker_tape()))
+        
+        WorkSpaceTabWidget = TabWidget()
+        self.ui.Ai_predictions_page.layout().addWidget(WorkSpaceTabWidget)
+
+
+
+# TODO 1 Переделать индексы кнопок для переключения (некорректные)
+#      2 Размеры виджетов довести до ума
+#      3 Впихнуть в табвиджет рабочее поле 
+
 
 
     def toggle_left_menu(self):

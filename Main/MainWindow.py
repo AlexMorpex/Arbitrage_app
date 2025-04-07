@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1173, 630)
+        MainWindow.resize(1181, 649)
         MainWindow.setMinimumSize(QSize(1040, 630))
         MainWindow.setStyleSheet(u"")
         self.MainWidget = QWidget(MainWindow)
@@ -230,6 +230,9 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.Account_page)
         self.Ai_predictions_page = QWidget()
         self.Ai_predictions_page.setObjectName(u"Ai_predictions_page")
+        self.verticalLayout_4 = QVBoxLayout(self.Ai_predictions_page)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
         self.stackedWidget.addWidget(self.Ai_predictions_page)
         self.Arbitrage_pairs_page = QWidget()
         self.Arbitrage_pairs_page.setObjectName(u"Arbitrage_pairs_page")
@@ -240,6 +243,19 @@ class Ui_MainWindow(object):
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer, 0, 2, 1, 1)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout.addItem(self.verticalSpacer_2, 2, 0, 1, 1)
+
+        self.DraggableLayout = QGridLayout()
+        self.DraggableLayout.setObjectName(u"DraggableLayout")
+
+        self.gridLayout.addLayout(self.DraggableLayout, 1, 1, 2, 2)
+
         self.ChartsToolsMenu = QPushButton(self.Exchenges_page)
         self.ChartsToolsMenu.setObjectName(u"ChartsToolsMenu")
         self.ChartsToolsMenu.setMinimumSize(QSize(54, 46))
@@ -250,10 +266,6 @@ class Ui_MainWindow(object):
         self.ChartsToolsMenu.setIconSize(QSize(25, 25))
 
         self.gridLayout.addWidget(self.ChartsToolsMenu, 0, 0, 1, 1)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout.addItem(self.verticalSpacer_2, 2, 0, 1, 1)
 
         self.ToolsMenu_Right = QWidget(self.Exchenges_page)
         self.ToolsMenu_Right.setObjectName(u"ToolsMenu_Right")
@@ -374,15 +386,6 @@ class Ui_MainWindow(object):
 
         self.gridLayout.addWidget(self.ToolsMenu_Left, 1, 0, 1, 1)
 
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer, 0, 2, 1, 1)
-
-        self.DraggableLayout = QGridLayout()
-        self.DraggableLayout.setObjectName(u"DraggableLayout")
-
-        self.gridLayout.addLayout(self.DraggableLayout, 1, 1, 2, 2)
-
         self.stackedWidget.addWidget(self.Exchenges_page)
 
         self.verticalLayout_3.addWidget(self.stackedWidget)
@@ -405,7 +408,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(6)
+        self.stackedWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
