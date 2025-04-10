@@ -5,7 +5,7 @@ from MainWindow import *
 from TradingViewWidgets import *
 from Draggable_Widget import DraggableWidget
 from QTabWidget import TabWidget
-
+from WorkSpaceWidget import WorkSpaceWidget
 class MainWindow(QMainWindow):
    
     def __init__(self):
@@ -43,8 +43,12 @@ class MainWindow(QMainWindow):
         self.ui.TickerTapeBtn.clicked.connect(lambda:self.add_draggable_widget(html_ticker_tape()))
         
         WorkSpaceTabWidget = TabWidget()
+        # Создаём экземпляр нового виджета
+        workspace_widget = WorkSpaceWidget()  
+        
+        # Добавляем виджет в layout
+        self.ui.Ai_predictions_page.layout().addWidget(workspace_widget)  # Ис
         self.ui.Ai_predictions_page.layout().addWidget(WorkSpaceTabWidget)
-
 
 
 # TODO 1 Переделать индексы кнопок для переключения (некорректные)
