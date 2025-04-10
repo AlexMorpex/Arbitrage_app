@@ -6,12 +6,12 @@ from TradingViewWidgets import *
 
 BASE_HTML = html_chart()
 class DraggableWidget(QFrame):
-    def __init__(self,parent=None,html=BASE_HTML,height=100,width=500,mh=20,mw=50):
+    def __init__(self,parent=None,html=BASE_HTML,height=100,width=500,maxh=20,maxw=50):
         super().__init__(parent)
         self.resize(width,height)
-        self.setMaximumHeight(height+mh)
-        self.setMaximumWidth(width+mw)
-        self.setMinimumWidth(90)
+        self.setMaximumHeight(maxh)
+        self.setMaximumWidth(maxw)
+        self.setMinimumWidth(30)
         self.setMinimumHeight(30)
 
         self.setStyleSheet("border: 1px; background-color: #1d1d1d;")

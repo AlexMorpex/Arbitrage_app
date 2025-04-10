@@ -15,76 +15,42 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLabel,
-    QLineEdit, QPushButton, QSizePolicy, QSpacerItem,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QPushButton,
+    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
 import resources_rc
 
-class Ui_Form(object):
-    def setupUi(self, Form):
-        if not Form.objectName():
-            Form.setObjectName(u"Form")
-        Form.resize(815, 562)
-        Form.setStyleSheet(u"border:1px solid;\n"
+class Ui_WorkSpaceWidget(object):
+    def setupUi(self, WorkSpaceWidget):
+        if not WorkSpaceWidget.objectName():
+            WorkSpaceWidget.setObjectName(u"WorkSpaceWidget")
+        WorkSpaceWidget.resize(847, 562)
+        WorkSpaceWidget.setStyleSheet(u"border:1px solid;\n"
 "border-color: rgb(0, 255, 0);\n"
 "")
-        self.gridLayout = QGridLayout(Form)
+        self.gridLayout = QGridLayout(WorkSpaceWidget)
+        self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.ChartsToolsMenu = QPushButton(Form)
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.frame = QFrame(WorkSpaceWidget)
+        self.frame.setObjectName(u"frame")
+        self.frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Shadow.Raised)
+        self.gridLayout_2 = QGridLayout(self.frame)
+        self.gridLayout_2.setSpacing(0)
+        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.ChartsToolsMenu = QPushButton(self.frame)
         self.ChartsToolsMenu.setObjectName(u"ChartsToolsMenu")
         self.ChartsToolsMenu.setMinimumSize(QSize(54, 46))
-        self.ChartsToolsMenu.setMaximumSize(QSize(16777215, 16777215))
+        self.ChartsToolsMenu.setMaximumSize(QSize(54, 46))
         icon = QIcon()
         icon.addFile(u":/Icons/icons/menu.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.ChartsToolsMenu.setIcon(icon)
         self.ChartsToolsMenu.setIconSize(QSize(25, 25))
 
-        self.gridLayout.addWidget(self.ChartsToolsMenu, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.ChartsToolsMenu, 0, 0, 1, 1)
 
-        self.ToolsMenu_Right = QWidget(Form)
-        self.ToolsMenu_Right.setObjectName(u"ToolsMenu_Right")
-        self.ToolsMenu_Right.setMinimumSize(QSize(350, 46))
-        self.ToolsMenu_Right.setMaximumSize(QSize(350, 46))
-        self.horizontalLayout_3 = QHBoxLayout(self.ToolsMenu_Right)
-        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.CryptoPairLabel = QLabel(self.ToolsMenu_Right)
-        self.CryptoPairLabel.setObjectName(u"CryptoPairLabel")
-        self.CryptoPairLabel.setMinimumSize(QSize(0, 0))
-        self.CryptoPairLabel.setMaximumSize(QSize(80, 28))
-        self.CryptoPairLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.horizontalLayout_3.addWidget(self.CryptoPairLabel)
-
-        self.lineEdit = QLineEdit(self.ToolsMenu_Right)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setMinimumSize(QSize(0, 0))
-        self.lineEdit.setMaximumSize(QSize(80, 28))
-
-        self.horizontalLayout_3.addWidget(self.lineEdit)
-
-        self.EchangeLabel = QLabel(self.ToolsMenu_Right)
-        self.EchangeLabel.setObjectName(u"EchangeLabel")
-        self.EchangeLabel.setMinimumSize(QSize(0, 0))
-        self.EchangeLabel.setMaximumSize(QSize(80, 28))
-        self.EchangeLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.horizontalLayout_3.addWidget(self.EchangeLabel)
-
-        self.lineEdit_2 = QLineEdit(self.ToolsMenu_Right)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setMinimumSize(QSize(0, 0))
-        self.lineEdit_2.setMaximumSize(QSize(80, 28))
-
-        self.horizontalLayout_3.addWidget(self.lineEdit_2)
-
-
-        self.gridLayout.addWidget(self.ToolsMenu_Right, 0, 1, 1, 1)
-
-        self.horizontalSpacer = QSpacerItem(378, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer, 0, 2, 1, 1)
-
-        self.ToolsMenu_Left = QWidget(Form)
+        self.ToolsMenu_Left = QWidget(self.frame)
         self.ToolsMenu_Left.setObjectName(u"ToolsMenu_Left")
         self.ToolsMenu_Left.setMinimumSize(QSize(54, 316))
         self.verticalLayout_5 = QVBoxLayout(self.ToolsMenu_Left)
@@ -162,28 +128,29 @@ class Ui_Form(object):
         self.verticalLayout_5.addWidget(self.TickerTapeBtn)
 
 
-        self.gridLayout.addWidget(self.ToolsMenu_Left, 1, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.ToolsMenu_Left, 1, 0, 1, 1)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 195, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.gridLayout_2.addItem(self.verticalSpacer_2, 2, 0, 1, 1)
 
         self.DraggableLayout = QGridLayout()
         self.DraggableLayout.setObjectName(u"DraggableLayout")
 
-        self.gridLayout.addLayout(self.DraggableLayout, 1, 1, 2, 2)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 167, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.gridLayout.addItem(self.verticalSpacer_2, 2, 0, 1, 1)
+        self.gridLayout_2.addLayout(self.DraggableLayout, 0, 1, 3, 2)
 
 
-        self.retranslateUi(Form)
+        self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
 
-        QMetaObject.connectSlotsByName(Form)
+
+        self.retranslateUi(WorkSpaceWidget)
+
+        QMetaObject.connectSlotsByName(WorkSpaceWidget)
     # setupUi
 
-    def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
+    def retranslateUi(self, WorkSpaceWidget):
+        WorkSpaceWidget.setWindowTitle(QCoreApplication.translate("WorkSpaceWidget", u"WorkSpaceWidget", None))
         self.ChartsToolsMenu.setText("")
-        self.CryptoPairLabel.setText(QCoreApplication.translate("Form", u" Crypto Pair ", None))
-        self.EchangeLabel.setText(QCoreApplication.translate("Form", u" Exchange ", None))
         self.SymbolINfoBtn.setText("")
         self.CalendarBtn.setText("")
         self.ChartBtn.setText("")
