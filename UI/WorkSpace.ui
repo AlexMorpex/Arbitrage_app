@@ -14,9 +14,7 @@
    <string>WorkSpaceWidget</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">border:1px solid;
-border-color: rgb(0, 255, 0);
-</string>
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
@@ -62,14 +60,14 @@ border-color: rgb(0, 255, 0);
        <widget class="QPushButton" name="ChartsToolsMenu">
         <property name="minimumSize">
          <size>
-          <width>54</width>
-          <height>46</height>
+          <width>0</width>
+          <height>36</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>54</width>
-          <height>46</height>
+          <height>36</height>
          </size>
         </property>
         <property name="text">
@@ -96,6 +94,12 @@ border-color: rgb(0, 255, 0);
          </size>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_5">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
          <item>
           <widget class="QPushButton" name="SymbolINfoBtn">
            <property name="text">
@@ -249,7 +253,11 @@ border-color: rgb(0, 255, 0);
        </spacer>
       </item>
       <item row="0" column="1" rowspan="3" colspan="2">
-       <layout class="QGridLayout" name="DraggableLayout"/>
+       <layout class="QGridLayout" name="DraggableLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+       </layout>
       </item>
      </layout>
     </widget>

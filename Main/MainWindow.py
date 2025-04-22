@@ -27,16 +27,86 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(1181, 649)
         MainWindow.setMinimumSize(QSize(1040, 630))
-        MainWindow.setStyleSheet(u"")
+        MainWindow.setStyleSheet(u"/* === \u0413\u041b\u041e\u0411\u0410\u041b\u042c\u041d\u042b\u0415 \u0426\u0412\u0415\u0422\u0410 === */\n"
+"QWidget {\n"
+"    background-color: #171a26;\n"
+"	color: #E0E0E0;\n"
+"	font: 900 9pt \"Segoe UI\";\n"
+"}\n"
+"\n"
+"/* === \u041b\u0415\u0412\u0410\u042f \u041f\u0410\u041d\u0415\u041b\u042c === */\n"
+"QWidget#LeftSide_menu {\n"
+"    background-color: #1a1e2c;\n"
+"}\n"
+"\n"
+"/* === \u041a\u041d\u041e\u041f\u041a\u0418 \u0411\u041e\u041a\u041e\u0412\u041e\u0413\u041e \u041c\u0415\u041d\u042e === */\n"
+"QWidget#LeftSide_menu QPushButton {\n"
+"    background-color: #2A2D3A;\n"
+"    border: 1px solid #2A2D3A;\n"
+"    color: #E0E0E0;\n"
+"    padding: 6px 12px;\n"
+"    border-radius: 6px;\n"
+"}\n"
+"QWidget#LeftSide_menu QPushButton:hover {\n"
+"    background-color: #3A8DFF;\n"
+"}\n"
+"\n"
+"QWidget#LeftSide_menu QPushButton:pressed {\n"
+"    background-color: #2C3E50;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"/* === \u0413\u041b\u0410\u0412\u041d\u0410\u042f \u0412\u0415\u0420\u0425\u041d\u042f\u042f \u041f\u0410\u041d"
+                        "\u0415\u041b\u042c === */\n"
+"QWidget#Head {\n"
+"    background-color: #1a1e2c;\n"
+"}\n"
+"\n"
+"/* === \u041a\u041d\u041e\u041f\u041a\u0418 \u0412\u0415\u0420\u0425\u041d\u0415\u0419 \u041f\u0410\u041d\u0415\u041b\u0418 === */\n"
+"QWidget#Head QPushButton{\n"
+"    background-color: #2A2D3A;\n"
+"    color: #E0E0E0;\n"
+"    border-radius: 4px;\n"
+"    padding: 4px 10px;\n"
+"}\n"
+"QWidget#Head QPushButton:hover {\n"
+"    background-color: #3A8DFF;\n"
+"    color: white;\n"
+"}\n"
+"\n"
+"QWidget#Footer {\n"
+"background-color:#1a1e2c;\n"
+"}\n"
+"\n"
+"/* === \u0422\u0410\u0411\u041b\u0418\u0426\u042b, \u0412\u0412\u041e\u0414\u042b \u0418 \u0414\u0420\u0423\u0413\u041e\u0415 === */\n"
+"QLineEdit, QComboBox, QTableView {\n"
+"    background-color: #1A1D2E;\n"
+"    border: 1px solid #2A2D3A;\n"
+"    color: #E0E0E0;\n"
+"    border-radius: 4px;\n"
+"    padding: 4px;\n"
+"}\n"
+"QLineEdit:focus, QComboBox:focus {\n"
+"    border: 1px solid #3A8DFF;\n"
+"}\n"
+"\n"
+"/* === \u0412\u0421\u041f\u041e\u041c\u041e\u0413\u0410\u0422\u0415"
+                        "\u041b\u042c\u041d\u042b\u0415 \u0426\u0412\u0415\u0422\u0410 === */\n"
+"QLabel[status=\"positive\"] {\n"
+"    color: #00C853; /* \u043f\u0440\u0438\u0431\u044b\u043b\u044c */\n"
+"}\n"
+"QLabel[status=\"negative\"] {\n"
+"    color: #D32F2F; /* \u0443\u0431\u044b\u0442\u043e\u043a */\n"
+"}\n"
+"")
         self.MainWidget = QWidget(MainWindow)
         self.MainWidget.setObjectName(u"MainWidget")
         self.MainWidget.setMinimumSize(QSize(1040, 624))
-        self.MainWidget.setStyleSheet(u"border:1px solid;\n"
-"border-color: rgb(0, 255, 0);")
+        self.MainWidget.setStyleSheet(u"")
         self.verticalLayout = QVBoxLayout(self.MainWidget)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setContentsMargins(10, 20, 10, 0)
         self.Head = QWidget(self.MainWidget)
         self.Head.setObjectName(u"Head")
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Preferred, QSizePolicy.Policy.Fixed)
@@ -46,9 +116,7 @@ class Ui_MainWindow(object):
         self.Head.setSizePolicy(sizePolicy)
         self.Head.setMinimumSize(QSize(0, 70))
         self.Head.setMaximumSize(QSize(16777215, 70))
-        self.Head.setStyleSheet(u"layout-spacing:10px;\n"
-"background-color: rgb(0, 26, 24);\n"
-"color:white;")
+        self.Head.setStyleSheet(u"")
         self.horizontalLayout_2 = QHBoxLayout(self.Head)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout_2.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
@@ -68,6 +136,7 @@ class Ui_MainWindow(object):
         self.Main_page_button.setObjectName(u"Main_page_button")
         self.Main_page_button.setMinimumSize(QSize(150, 50))
         self.Main_page_button.setMaximumSize(QSize(150, 150))
+        self.Main_page_button.setStyleSheet(u"")
 
         self.horizontalLayout_2.addWidget(self.Main_page_button)
 
@@ -104,7 +173,7 @@ class Ui_MainWindow(object):
 
         self.Body = QWidget(self.MainWidget)
         self.Body.setObjectName(u"Body")
-        self.Body.setStyleSheet(u"color:white;")
+        self.Body.setStyleSheet(u"")
         self.horizontalLayout = QHBoxLayout(self.Body)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
@@ -117,8 +186,7 @@ class Ui_MainWindow(object):
         sizePolicy2.setHeightForWidth(self.LeftSide_menu.sizePolicy().hasHeightForWidth())
         self.LeftSide_menu.setSizePolicy(sizePolicy2)
         self.LeftSide_menu.setMaximumSize(QSize(185, 16777215))
-        self.LeftSide_menu.setStyleSheet(u"background-color: rgb(0, 55, 50);\n"
-"color:white;")
+        self.LeftSide_menu.setStyleSheet(u"")
         self.verticalLayout_2 = QVBoxLayout(self.LeftSide_menu)
         self.verticalLayout_2.setSpacing(5)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
@@ -129,6 +197,7 @@ class Ui_MainWindow(object):
         self.Charts_button.setSizePolicy(sizePolicy1)
         self.Charts_button.setMinimumSize(QSize(165, 50))
         self.Charts_button.setMaximumSize(QSize(180, 50))
+        self.Charts_button.setStyleSheet(u"")
 
         self.verticalLayout_2.addWidget(self.Charts_button)
 
@@ -162,8 +231,7 @@ class Ui_MainWindow(object):
 
         self.Main_menu = QWidget(self.Body)
         self.Main_menu.setObjectName(u"Main_menu")
-        self.Main_menu.setStyleSheet(u"background-color:rgb(49, 80, 77);\n"
-"")
+        self.Main_menu.setStyleSheet(u"")
         self.verticalLayout_3 = QVBoxLayout(self.Main_menu)
         self.verticalLayout_3.setSpacing(0)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
@@ -224,7 +292,10 @@ class Ui_MainWindow(object):
         self.label_6.setObjectName(u"label_6")
         self.label_6.setGeometry(QRect(410, 170, 281, 141))
         font = QFont()
-        font.setPointSize(30)
+        font.setFamilies([u"Segoe UI"])
+        font.setPointSize(9)
+        font.setWeight(QFont.Black)
+        font.setItalic(False)
         self.label_6.setFont(font)
         self.stackedWidget.addWidget(self.Settings_page)
         self.Main_page = QWidget()
@@ -271,9 +342,9 @@ class Ui_MainWindow(object):
 
         self.Footer = QWidget(self.MainWidget)
         self.Footer.setObjectName(u"Footer")
-        self.Footer.setMinimumSize(QSize(0, 60))
+        self.Footer.setMinimumSize(QSize(0, 30))
         self.Footer.setMaximumSize(QSize(16777215, 60))
-        self.Footer.setStyleSheet(u"background-color:rgb(0, 26, 24)")
+        self.Footer.setStyleSheet(u"")
 
         self.verticalLayout.addWidget(self.Footer)
 
@@ -281,7 +352,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(5)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
