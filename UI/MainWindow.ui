@@ -280,7 +280,7 @@ QLabel[status=&quot;negative&quot;] {
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
-        <number>0</number>
+        <number>10</number>
        </property>
        <property name="leftMargin">
         <number>0</number>
@@ -340,13 +340,13 @@ QLabel[status=&quot;negative&quot;] {
             </property>
             <property name="minimumSize">
              <size>
-              <width>165</width>
+              <width>150</width>
               <height>50</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>180</width>
+              <width>120</width>
               <height>50</height>
              </size>
             </property>
@@ -362,13 +362,13 @@ QLabel[status=&quot;negative&quot;] {
            <widget class="QPushButton" name="Exchanges_button">
             <property name="minimumSize">
              <size>
-              <width>165</width>
+              <width>150</width>
               <height>50</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>180</width>
+              <width>120</width>
               <height>50</height>
              </size>
             </property>
@@ -381,13 +381,13 @@ QLabel[status=&quot;negative&quot;] {
            <widget class="QPushButton" name="Ai_predictions_button">
             <property name="minimumSize">
              <size>
-              <width>165</width>
+              <width>150</width>
               <height>50</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>180</width>
+              <width>120</width>
               <height>50</height>
              </size>
             </property>
@@ -400,7 +400,7 @@ QLabel[status=&quot;negative&quot;] {
            <widget class="QPushButton" name="Arbitrage_button">
             <property name="minimumSize">
              <size>
-              <width>165</width>
+              <width>150</width>
               <height>50</height>
              </size>
             </property>
@@ -412,6 +412,19 @@ QLabel[status=&quot;negative&quot;] {
             </property>
             <property name="text">
              <string>Arbitrage pairs</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="WorkSpace_button">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Work Space</string>
             </property>
            </widget>
           </item>
@@ -444,18 +457,18 @@ QLabel[status=&quot;negative&quot;] {
            <number>0</number>
           </property>
           <property name="topMargin">
-           <number>0</number>
+           <number>5</number>
           </property>
           <property name="rightMargin">
            <number>0</number>
           </property>
           <property name="bottomMargin">
-           <number>0</number>
+           <number>5</number>
           </property>
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="currentIndex">
-             <number>5</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="Charts_page">
              <layout class="QGridLayout" name="gridLayout_2">
@@ -536,123 +549,222 @@ QLabel[status=&quot;negative&quot;] {
               </item>
              </layout>
             </widget>
+            <widget class="QWidget" name="WorkSpace_page">
+             <layout class="QHBoxLayout" name="horizontalLayout_4"/>
+            </widget>
             <widget class="QWidget" name="Settings_page">
-             <widget class="QLabel" name="label_6">
-              <property name="geometry">
-               <rect>
-                <x>410</x>
-                <y>170</y>
-                <width>281</width>
-                <height>141</height>
-               </rect>
+             <layout class="QHBoxLayout" name="horizontalLayout_9">
+              <property name="spacing">
+               <number>0</number>
               </property>
-              <property name="font">
-               <font>
-                <family>Segoe UI</family>
-                <pointsize>9</pointsize>
-                <italic>false</italic>
-                <fontweight>Black</fontweight>
-               </font>
+              <property name="leftMargin">
+               <number>0</number>
               </property>
-              <property name="text">
-               <string>Settings_page</string>
+              <property name="topMargin">
+               <number>0</number>
               </property>
-             </widget>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_6">
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>9</pointsize>
+                  <italic>false</italic>
+                  <fontweight>Black</fontweight>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Settings_page</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
             <widget class="QWidget" name="Main_page">
-             <widget class="QLabel" name="label_5">
-              <property name="geometry">
-               <rect>
-                <x>370</x>
-                <y>170</y>
-                <width>231</width>
-                <height>141</height>
-               </rect>
+             <layout class="QHBoxLayout" name="horizontalLayout_8">
+              <property name="spacing">
+               <number>0</number>
               </property>
-              <property name="font">
-               <font>
-                <family>Segoe UI</family>
-                <pointsize>9</pointsize>
-                <italic>false</italic>
-                <fontweight>Black</fontweight>
-               </font>
+              <property name="leftMargin">
+               <number>0</number>
               </property>
-              <property name="text">
-               <string>Main_page</string>
+              <property name="topMargin">
+               <number>0</number>
               </property>
-             </widget>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_5">
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>9</pointsize>
+                  <italic>false</italic>
+                  <fontweight>Black</fontweight>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Main_page</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
             <widget class="QWidget" name="Account_page">
-             <widget class="QLabel" name="label">
-              <property name="geometry">
-               <rect>
-                <x>380</x>
-                <y>150</y>
-                <width>271</width>
-                <height>141</height>
-               </rect>
+             <layout class="QHBoxLayout" name="horizontalLayout_5">
+              <property name="spacing">
+               <number>0</number>
               </property>
-              <property name="font">
-               <font>
-                <family>Segoe UI</family>
-                <pointsize>9</pointsize>
-                <italic>false</italic>
-                <fontweight>Black</fontweight>
-               </font>
+              <property name="leftMargin">
+               <number>0</number>
               </property>
-              <property name="text">
-               <string>Account page</string>
+              <property name="topMargin">
+               <number>0</number>
               </property>
-             </widget>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label">
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>9</pointsize>
+                  <italic>false</italic>
+                  <fontweight>Black</fontweight>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Account page</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
             <widget class="QWidget" name="Ai_predictions_page">
-             <layout class="QHBoxLayout" name="horizontalLayout_3"/>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>Ai predictions page</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
             <widget class="QWidget" name="Arbitrage_pairs_page">
-             <widget class="QLabel" name="label_3">
-              <property name="geometry">
-               <rect>
-                <x>300</x>
-                <y>160</y>
-                <width>381</width>
-                <height>141</height>
-               </rect>
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <property name="spacing">
+               <number>0</number>
               </property>
-              <property name="font">
-               <font>
-                <family>Segoe UI</family>
-                <pointsize>9</pointsize>
-                <italic>false</italic>
-                <fontweight>Black</fontweight>
-               </font>
+              <property name="leftMargin">
+               <number>0</number>
               </property>
-              <property name="text">
-               <string>Arbitage_pairs_page</string>
+              <property name="topMargin">
+               <number>0</number>
               </property>
-             </widget>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_3">
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>9</pointsize>
+                  <italic>false</italic>
+                  <fontweight>Black</fontweight>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Arbitage_pairs_page</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
             <widget class="QWidget" name="Exchenges_page">
-             <widget class="QLabel" name="label_4">
-              <property name="geometry">
-               <rect>
-                <x>320</x>
-                <y>160</y>
-                <width>341</width>
-                <height>141</height>
-               </rect>
+             <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <property name="spacing">
+               <number>0</number>
               </property>
-              <property name="font">
-               <font>
-                <family>Segoe UI</family>
-                <pointsize>9</pointsize>
-                <italic>false</italic>
-                <fontweight>Black</fontweight>
-               </font>
+              <property name="leftMargin">
+               <number>0</number>
               </property>
-              <property name="text">
-               <string>Exchenges_page</string>
+              <property name="topMargin">
+               <number>0</number>
               </property>
-             </widget>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_4">
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>9</pointsize>
+                  <italic>false</italic>
+                  <fontweight>Black</fontweight>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Exchenges_page</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </widget>
           </item>
