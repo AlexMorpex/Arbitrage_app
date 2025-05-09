@@ -1,23 +1,47 @@
 from PySide6.QtWidgets import QApplication, QWidget, QGraphicsRectItem,QGraphicsDropShadowEffect
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt,QSettings
 import sys
 from MainWindow import *
 from TradingViewWidgets import *
 from Draggable_Widget import DraggableWidget
 from QTabWidget import TabWidget
 from WorkSpaceWidget import WorkSpaceWidget
+import json
+from pathlib import Path
 class MainWindow(QMainWindow):
    
     def __init__(self):
         QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.ui.Menu_button.clicked.connect(self.toggle_left_menu)
 
+        self.state_path = Path('./Configs/browser_state.json')
 
-        html_code = html_chart('BINANCE','BTCUSDT')
+        self.set_charts()
+        self.connect_btns()
+        self.add_all_shadows()
+
         self.ui.stackedWidget.setCurrentIndex(3)
-        self.draggable_widgets = []  # Инициализируем список для хранения виджетов
+        self.load_app_state()
+
+        self.TabWidget = TabWidget()
+        self.ui.WorkSpace_page.layout().addWidget(self.TabWidget)
+
+        
+    def closeEvent(self, event):
+        self.save_app_state()
+        super().closeEvent(event)
+    
+    def save_app_state(self):
+        p = Path('./Configs').iterdir()
+        for el in p:
+            el.unlink()
+
+    def load_app_state(self):
+        pass
+
+    def set_charts(self):
+        html_code = html_chart('BINANCE','BTCUSDT')
 
         self.ui.Charts_browser1.setHtml(html_code)
         self.ui.Charts_browser2.setHtml(html_code)
@@ -25,6 +49,9 @@ class MainWindow(QMainWindow):
         self.ui.Charts_browser4.setHtml(html_code)
         self.ui.Charts_browser5.setHtml(html_code)
         self.ui.Charts_browser6.setHtml(html_code)
+
+    def connect_btns(self):
+        self.ui.Menu_button.clicked.connect(self.toggle_left_menu)
 
         self.ui.Charts_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(0))
         self.ui.WorkSpace_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(1))
@@ -35,10 +62,7 @@ class MainWindow(QMainWindow):
         self.ui.Ai_predictions_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(5))
         self.ui.Exchanges_button.clicked.connect(lambda:self.ui.stackedWidget.setCurrentIndex(7))
 
-
-        self.TabWidget = TabWidget()
-        self.ui.WorkSpace_page.layout().addWidget(self.TabWidget)
-
+    def add_all_shadows(self):
         self.add_shadow(self.ui.LeftSide_menu)
         self.add_shadow(self.ui.Head)
         self.add_shadow(self.ui.Charts_button)
@@ -50,8 +74,7 @@ class MainWindow(QMainWindow):
         self.add_shadow(self.ui.Settings_button)
         self.add_shadow(self.ui.Settings_button)
         self.add_shadow(self.ui.Account_button)
-
-
+        self.add_shadow(self.ui.WorkSpace_button)
 
     def add_shadow(self,elem):
         shadow = QGraphicsDropShadowEffect(self)

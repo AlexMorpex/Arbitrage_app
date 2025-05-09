@@ -5,11 +5,12 @@ from Draggable_Widget import DraggableWidget
 from TradingViewWidgets import *
 
 class WorkSpaceWidget(QWidget, Ui_WorkSpaceWidget):
-    def __init__(self):
+    def __init__(self,tab):
         super().__init__()
         self.setupUi(self)  # Инициализация UI
-        self.draggable_widgets = []
-
+        print(f'Created Work Space Widget {tab}')
+        self.tab_counter = tab
+        self.widget_counter = 0
         self.ChartsToolsMenu.clicked.connect(self.toggle_ToolsMenu)
         self.SymbolINfoBtn.clicked.connect(lambda:self.add_draggable_widget(html_symbol_info(),height=210,width=390,maxh=220,maxw=420))
         self.CalendarBtn.clicked.connect(lambda:self.add_draggable_widget(html_economic_calendar(),height=710,width=311,maxh=800,maxw=320))
@@ -20,15 +21,20 @@ class WorkSpaceWidget(QWidget, Ui_WorkSpaceWidget):
         self.AnalysisBtn.clicked.connect(lambda:self.add_draggable_widget(html_technical_analysis(),height=480,width=1100,maxh=480,maxw=1100))
         self.TickerTapeBtn.clicked.connect(lambda:self.add_draggable_widget(html_ticker_tape(),height=76,width=800,maxh=76,maxw=1700))
         
-        
 
     def add_draggable_widget(self,html,height=100,width=500,maxh=20,maxw=50):
-# Получаем текущую страницу `stackedWidget`
+        # Получаем текущую страницу `stackedWidget`
         current_page = self.frame
-        
+        self.widget_counter+=1
         # Создаём новый DraggableWidget с `current_page` в качестве родителя
-        widget = DraggableWidget(current_page,html,height=height,width=width,maxh=maxh,maxw=maxw)
-        
+        widget = DraggableWidget(current_page,
+                                 html=html,
+                                 height=height,
+                                 width=width,
+                                 maxh=maxh,
+                                 maxw=maxw,
+                                 tab_counter=self.tab_counter,
+                                 widget_counter=self.widget_counter)
         # Смещение каждого нового виджета
         offset = 20 * len(current_page.findChildren(DraggableWidget))  
 

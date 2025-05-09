@@ -4,16 +4,15 @@ from WorkSpaceWidget import WorkSpaceWidget
 class TabWidget(QTabWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
+        print('Created Tab Widget')
 
+        self.tabs = 0
         self.setTabsClosable(True)
         self.tabCloseRequested.connect(self.close_tab)
-
         self.add_new_tab()
         self.addTab(QWidget(), "+")
         self.currentChanged.connect(self.check_new_tab)
-
         self.make_css_create_again()
-
 
 
     def make_css_create_again(self):
@@ -48,15 +47,22 @@ class TabWidget(QTabWidget):
             # }
             """)
         
-
     def add_new_tab(self):
         new_tab = QWidget()
         layout = QVBoxLayout(new_tab)
-        WorkSpace = WorkSpaceWidget()
-        layout.addWidget(WorkSpace)
 
-        self.insertTab(self.count() - 1, new_tab, f"Вкладка {self.count()}")
+        if self.count()<1:
+            self.insertTab(self.count(),new_tab,f"Page 1")
+            WorkSpace = WorkSpaceWidget(f"Page 1")
+            layout.addWidget(WorkSpace)
+            self.tabs+=1
+        else:
+            self.tabs+=1
+            WorkSpace = WorkSpaceWidget(f"Page {self.tabs}")
+            layout.addWidget(WorkSpace)
+            self.insertTab(self.count() - 1, new_tab, f"Page {self.tabs}")
 
+                
     def check_new_tab(self, index):
         if self.tabText(index) == "+":
             self.add_new_tab()
@@ -64,4 +70,6 @@ class TabWidget(QTabWidget):
 
     def close_tab(self, index):
         if self.tabText(index) != "+":
+            self.setCurrentIndex(self.currentIndex()-1)
+            print('удаляю',self.tabText(index))
             self.removeTab(index)

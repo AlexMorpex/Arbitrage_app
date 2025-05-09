@@ -3,17 +3,23 @@ from PySide6.QtGui import QCursor
 from PySide6.QtWidgets import QWidget,QVBoxLayout, QHBoxLayout, QPushButton, QFrame
 from PySide6.QtWebEngineWidgets import QWebEngineView
 from TradingViewWidgets import *
+from pathlib import Path
+import json
 
 BASE_HTML = html_chart()
+
 class DraggableWidget(QFrame):
-    def __init__(self,parent=None,html=BASE_HTML,height=100,width=500,maxh=20,maxw=50):
+    def __init__(self,parent=None,html=BASE_HTML,height=100,width=500,maxh=20,maxw=50,tab_counter=0,widget_counter=0):
         super().__init__(parent)
+        print(f'Created Draggable Widget {tab_counter} {widget_counter}')
+        self.tab_counter = tab_counter
+        self.widget_counter = widget_counter
+        self.info_path = Path('./Configs/DraggableWidgets.json')
         self.resize(width,height)
         self.setMaximumHeight(maxh)
         self.setMaximumWidth(maxw)
         self.setMinimumWidth(30)
         self.setMinimumHeight(30)
-
         self.setStyleSheet("border: 1px; background-color: #1d1d1d;")
 
         self.main_layout = QVBoxLayout(self)
@@ -42,6 +48,8 @@ class DraggableWidget(QFrame):
         self.resize_direction = None
         self.offset = QPointF()
         self.setMouseTracking(True)  # Enable mouse tracking
+
+        self.add_info_about_widget()
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:
@@ -101,3 +109,39 @@ class DraggableWidget(QFrame):
             self.setCursor(Qt.SizeVerCursor)
         else:
             self.setCursor(Qt.ArrowCursor)
+
+    def add_info_about_widget(self):
+
+        if self.info_path.exists():
+            with open (self.info_path,'r',encoding='utf-8') as f:
+                data = json.load(f)
+            with open(self.info_path, 'w',encoding='utf-8') as f:
+                data[f'Widget {self.tab_counter}{self.widget_counter}'] = {
+                        'tab_counter':self.tab_counter,
+                        'widget_counter':self.widget_counter,
+                        'pos_x':self.mapToParent(self.pos()).x(),
+                        'pos_y':self.mapToParent(self.pos()).y()
+                        }
+                json.dump(data, f, indent=4, ensure_ascii=False)
+        else:   
+            with open(self.info_path, 'x', encoding='utf-8') as f:
+                data = {f'Widget {self.tab_counter}{self.widget_counter}':
+                        {
+                        'tab_counter':self.tab_counter,
+                        'widget_counter':self.widget_counter,
+                        'pos_x':self.mapToParent(self.pos()).x(),
+                        'pos_y':self.mapToParent(self.pos()).y()
+                        }
+                    }
+                json.dump(data, f, indent=4, ensure_ascii=False)
+
+    def delete_info_about_widget(self):
+        with open (self.info_path,'r',encoding='utf-8') as f:
+            data = json.load(f)
+        with open(self.info_path, 'w',encoding='utf-8') as f:
+            data.pop(f'Widget {self.tab_counter}{self.widget_counter}')
+            json.dump(data, f, indent=4, ensure_ascii=False)
+            
+    def closeEvent(self, event):
+        self.delete_info_about_widget()
+        return super().closeEvent(event)

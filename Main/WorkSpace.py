@@ -24,9 +24,7 @@ class Ui_WorkSpaceWidget(object):
         if not WorkSpaceWidget.objectName():
             WorkSpaceWidget.setObjectName(u"WorkSpaceWidget")
         WorkSpaceWidget.resize(847, 562)
-        WorkSpaceWidget.setStyleSheet(u"border:1px solid;\n"
-"border-color: rgb(0, 255, 0);\n"
-"")
+        WorkSpaceWidget.setStyleSheet(u"")
         self.gridLayout = QGridLayout(WorkSpaceWidget)
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName(u"gridLayout")
@@ -41,8 +39,8 @@ class Ui_WorkSpaceWidget(object):
         self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
         self.ChartsToolsMenu = QPushButton(self.frame)
         self.ChartsToolsMenu.setObjectName(u"ChartsToolsMenu")
-        self.ChartsToolsMenu.setMinimumSize(QSize(54, 46))
-        self.ChartsToolsMenu.setMaximumSize(QSize(54, 46))
+        self.ChartsToolsMenu.setMinimumSize(QSize(0, 36))
+        self.ChartsToolsMenu.setMaximumSize(QSize(54, 36))
         icon = QIcon()
         icon.addFile(u":/Icons/icons/menu.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.ChartsToolsMenu.setIcon(icon)
@@ -55,6 +53,7 @@ class Ui_WorkSpaceWidget(object):
         self.ToolsMenu_Left.setMinimumSize(QSize(54, 316))
         self.verticalLayout_5 = QVBoxLayout(self.ToolsMenu_Left)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.verticalLayout_5.setContentsMargins(0, -1, 0, -1)
         self.SymbolINfoBtn = QPushButton(self.ToolsMenu_Left)
         self.SymbolINfoBtn.setObjectName(u"SymbolINfoBtn")
         icon1 = QIcon()
@@ -135,6 +134,7 @@ class Ui_WorkSpaceWidget(object):
         self.gridLayout_2.addItem(self.verticalSpacer_2, 2, 0, 1, 1)
 
         self.DraggableLayout = QGridLayout()
+        self.DraggableLayout.setSpacing(0)
         self.DraggableLayout.setObjectName(u"DraggableLayout")
 
         self.gridLayout_2.addLayout(self.DraggableLayout, 0, 1, 3, 2)
